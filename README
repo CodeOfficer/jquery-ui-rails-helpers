@@ -10,7 +10,7 @@ These are some view helpers I use in Rails to better integrate JQuery UI in my s
 
 Maybe you will find them useful as well.
 
-These include ...
+These include ... (just one helper for now)
 
 
 TabsRenderer
