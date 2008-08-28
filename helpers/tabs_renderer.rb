@@ -1,9 +1,12 @@
 class TabsRenderer
   
-  def initialize(template, options={})
+  def initialize(template, options={}, &block)
     @template = template
     @options = options
     @tabs = []
+    if block_given?
+      yield self
+    end
   end
   
   def create(tab_id, tab_text, options={}, &block)

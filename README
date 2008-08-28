@@ -64,3 +64,15 @@ DIV as you like ...
 
 The default DOM ID for the parent div is ... id="tabs" ... unless you pass in an HTML
 option with a different value.
+
+Also optional, you can now call TabsRenderer.new with a block parameter, and create
+the tabs that way.
+
+  <% tabs = TabsRenderer.new(self) do |tab| %>
+  	<% tab.create('tab_one', 'Tab 1') do %>
+      # ... insert tab contents
+  	<% end %>
+  	<% tab.create('tab_two', 'Tab 2') do %>
+      # ... insert tab contents
+  	<% end %>
+  <%= tabs.render %>
