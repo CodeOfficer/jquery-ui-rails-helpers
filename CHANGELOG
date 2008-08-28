@@ -1,3 +1,7 @@
+== 08-28-2008 
+ 
+ * added the ability to call TabsRenderer.new with a block parameter
+
 == 06-22-2008 initial import
  
  * TabsRenderer added
