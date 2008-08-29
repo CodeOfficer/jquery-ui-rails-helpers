@@ -75,4 +75,5 @@ the tabs that way.
   	<% tab.create('tab_two', 'Tab 2') do %>
       # ... insert tab contents
   	<% end %>
+	<% end %>
   <%= tabs.render %>
