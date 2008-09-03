@@ -77,3 +77,15 @@ the tabs that way.
   	<% end %>
 	<% end %>
   <%= tabs.render %>
+  
+##########################################################################
+Now works as:
+  <% tabs_for do |tab| %>
+  	<% tab.create('tab_one', 'Tab 1') do %>
+      # ... insert tab contents
+  	<% end %>
+  	<% tab.create('tab_two', 'Tab 2') do %>
+      # ... insert tab contents
+  	<% end %>
+	<% end %>
+
