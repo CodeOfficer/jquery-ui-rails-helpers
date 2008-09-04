@@ -1,3 +1,7 @@
+== 09-04-2008
+
+ * big change: renamed classes, and helper 'tabs_for' now requires a block
+
 == 08-28-2008 
  
  * added the ability to call TabsRenderer.new with a block parameter
