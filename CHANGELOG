@@ -1,3 +1,8 @@
+== 03-07-2009
+
+ * big change: removed the 2nd param for concat, rails no longer requires the binding be passed.
+ * added a helper for creating accordions
+
 == 09-04-2008
 
  * big change: renamed classes, and helper 'tabs_for' now requires a block

@@ -5,7 +5,7 @@ module TabsHelper
 
     tabs = TabsHelper::TabsRenderer.new( *options, &block )
     tabs_html = tabs.render
-    concat tabs_html, block.binding
+    concat tabs_html
   end
   
   class TabsRenderer

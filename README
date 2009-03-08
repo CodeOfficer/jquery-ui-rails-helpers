@@ -10,7 +10,7 @@ These are some view helpers I use in Rails to better integrate JQuery UI in my s
 
 Maybe you will find them useful as well.
 
-These include ... (just one helper for now)
+These include: TabsHelper and AccordionsHelper
 
 
 TabsHelper
@@ -66,4 +66,16 @@ The default DOM ID for the parent div is ... id="tabs" ... unless you pass in an
 option with a different value.
 
 
+AccordionsHelper
+----------------------------------------------------------------	
+
+This helper simplifies the code required to use JQuery UIs Accordion plugin.
+
+Usage is identical to the tabs helper.
+
+	<% accordions_for do |accordion| %>
+		<% accordion.create("dom_id", "accordion_title") do %>
+			# ... insert accordion contents
+		<% end %>
+	<% end %>
 
