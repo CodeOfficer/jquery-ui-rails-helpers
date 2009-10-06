@@ -28,17 +28,15 @@ module AccordionsHelper
     def render      
       content_tag :div, { :id => :accordions }.merge( @options ) do
         @accordions.collect do |accordion|
-          content_tag :div, accordion[2].merge( :id => accordion[0] ) do
-            accordion_head(accordion) + accordion_body(accordion)
-          end
-        end
+          accordion_head(accordion) + accordion_body(accordion)
+        end.join
       end
     end
     
     private #  ---------------------------------------------------------------------------
     
     def accordion_head(accordion)
-      content_tag :h3 do
+      content_tag :h3, :id => accordion[0] do
         link_to accordion[1], '#'
       end
     end
