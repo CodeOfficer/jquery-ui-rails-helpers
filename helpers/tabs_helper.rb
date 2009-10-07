@@ -35,14 +35,14 @@ module TabsHelper
       content_tag :ul do
         @tabs.collect do |tab|
           content_tag( :li, link_to( content_tag( :span, tab[1] ), "##{tab[0]}" ) )
-        end
+        end.join
       end
     end
     
     def  render_bodies
       @tabs.collect do |tab| 
         content_tag( :div, capture( &tab[3] ), tab[2].merge( :id => tab[0] ) ) 
-      end.to_s
+      end.join.to_s
     end
     
     def method_missing( *args, &block )
