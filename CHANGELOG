@@ -1,3 +1,8 @@
+== 11-14-2010
+
+ * refactored for Rails 3
+ * added Rspec tests
+
 == 03-07-2009
 
  * big change: removed the 2nd param for concat, rails no longer requires the binding be passed.
