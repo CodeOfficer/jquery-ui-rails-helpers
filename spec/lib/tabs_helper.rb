@@ -12,7 +12,7 @@ describe TabsHelper do
   it "should be empty, with an empty block" do
     output = tabs_for do
     end
-    output.should == "<div id=\"tabs\"></div>"
+    output.should == "<div id=\"tabs\"><ul></ul></div>"
   end
 
   it "should be have one link, with one " do
@@ -21,6 +21,6 @@ describe TabsHelper do
         # empty for now
       end
     end
-    output.should == "<div id=\"tabs\"><li><a href=\"#tab_one\"><span>Tab 1</span></a></li><div id=\"tab_one\"></div></div>"
+    output.should == "<div id=\"tabs\"><ul><li><a href=\"#tab_one\"><span>Tab 1</span></a></li></ul><div id=\"tab_one\"></div></div>"
   end
 end

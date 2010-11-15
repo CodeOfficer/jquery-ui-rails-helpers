@@ -26,7 +26,7 @@ module TabsHelper
         tabs << tab.render_tab
         content << tab.render_content
       end
-      output = tabs + content
+      output = content_tag( :ul, tabs.html_safe ) + content.html_safe
     
       content_tag( :div, output.html_safe, { :id => :tabs }.merge( @options ) )
     end
