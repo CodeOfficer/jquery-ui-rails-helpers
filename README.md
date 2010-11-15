@@ -34,15 +34,16 @@ The above will generate this HTML in your view:
 Tabs will be rendered in the order you create them.
 
 You can pass HTML options to either the parent DIV or any individual tab's
-DIV as you like ... *I actually think the interface for this should be changed to use :html to set
-HTML options and :ui to set UI widget options -michaek*
+DIV as you like ...
 
-    - tabs_for(:class => 'zippy') do |tab|
-    	- tab.create('tab_one', 'Tab 1', :style => 'background: #FFF') do
+    - tabs_for :html => { :class => 'zippy' } do |tab|
+    	- tab.create 'tab_one', 'Tab 1', :html => { :style => 'background: #FFF' } do
         Tab contents
 
 The default DOM ID for the parent div is ... id="tabs" ... unless you pass in an HTML
 option with a different value.
+
+Options for jQuery UI widgets will be passed in via a :ui parameter, but this isn't supported yet.
 
 
 AccordionHelper
@@ -58,3 +59,13 @@ the helper name to change from "accordions_for" to "accordion_for", as the name 
         Accordion contents
     	- accordion.create('accordion_two', 'Accordion 2') do
     	  Accordion contents
+
+
+Javascript Generation
+---------------------
+
+By default, Javascript for the generated HTML is saved via content_for to the identifier :jquery_ui_helpers. You can specify a custom identifier with 
+the parameter :script_for
+
+    - tabs_for :script_for => :scripts do |tab|
+      ...
