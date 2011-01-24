@@ -1,0 +1,31 @@
+http://technicalpickles.com/posts/helper-testing-using-actionview-testcase/
+http://blog.costan.us/2010/08/helper-testing-in-rails-3.html
+http://www.slideshare.net/noelrap/how-to-test-everything
+http://rails-nutshell.labs.oreilly.com/ch11.html
+https://gist.github.com/52976
+https://github.com/vigetlabs/helper_me_test/
+http://tj.stank.us/2009/01/26/testing-html-strings-returned-from-helpers.html
+
+	# Unfortunately, there is currently an abstraction leak between AC::Base
+	# and AV::Base which requires having the URL helpers in both AC and AV.
+	# To do this safely at runtime for tests, we need to bump up the helper serial
+	# to that the old AV subclass isn't cached.
+	actionpack-3.0.3/lib/action_dispatch/testing/assertions/routing.rb
+
+<%= tabs_for do |tab| %>
+  <% tab.create('project', 'Project') do %>
+    <%= render :partial => 'form', :locals => {:project => @project} %>
+  <% end %>
+  <% tab.create('status_updates', 'Status Updates') do %>
+    <%= render :partial => 'status_updates', :locals => {:project => @project} %>
+  <% end if current_user.try(:admin?) %>
+  <% tab.create('budget_updates', 'Budget Updates') do %>
+    <%= render :partial => 'budget_updates', :locals => {:project => @project} %>
+  <% end if current_user.try(:admin?) %>
+  <% tab.create('principle_investigator', 'Principle Investigator') do %>
+    <%= render :partial => 'principle_investigators', :locals => {:project => @project} %>
+  <% end if current_user.try(:admin?) %>
+  <% tab.create('investigators', 'Investigators') do %>
+    <%= render :partial => 'investigators', :locals => {:project => @project} %>
+  <% end if current_user.try(:admin?) %>
+<% end %>
