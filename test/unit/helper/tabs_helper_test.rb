@@ -20,19 +20,11 @@ class TabsHelperTest < ActionView::TestCase
 
 		should 'have proper dom structure' do
 			render :text => @tabs
-			assert_select "div[id='tabs']"
-			assert_select "div[id='tabs'] ul"
+			assert_select "div[id='tabs']", 1
+			assert_select "div[id='tabs'] ul", 1
 			assert_select "div[id='tabs'] ul li", 2
-			assert_select "div[id='tabs'] div[id='information']"
-			assert_select "div[id='tabs'] div[id='about_us']"
-
-			assert_select "div[id='tabs']" do |outer_divs|
-				outer_divs.each do |outer_div|
-					assert_select outer_div, "ul", 1 do |uls|
-						assert_select uls[0], "li", 2
-					end
-				end
-			end
+			assert_select "div[id='tabs'] div[id='information']", 1
+			assert_select "div[id='tabs'] div[id='about_us']", 1
 		end
 	end
 

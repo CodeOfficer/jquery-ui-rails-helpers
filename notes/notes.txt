@@ -29,3 +29,11 @@ http://tj.stank.us/2009/01/26/testing-html-strings-returned-from-helpers.html
     <%= render :partial => 'investigators', :locals => {:project => @project} %>
   <% end if current_user.try(:admin?) %>
 <% end %>
+
+assert_select "div[id='tabs']" do |outer_divs|
+	outer_divs.each do |outer_div|
+		assert_select outer_div, "ul", 1 do |uls|
+			assert_select uls[0], "li", 2
+		end
+	end
+end
