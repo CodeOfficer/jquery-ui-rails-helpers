@@ -21,7 +21,11 @@ module TabsHelper
 
     def create( tab_id, tab_text, options={}, &block )
       raise "Block needed for TabsRenderer#CREATE" unless block_given?
-      @tabs << [ tab_id, tab_text, options, block ]
+      @tabs << [ tab_id, tab_text, options, block, {:ajax => false} ]
+    end
+
+    def create_ajax( link, tab_text, options={})
+      @tabs << [ link, tab_text, options, nil, {:ajax => true} ]
     end
 
     def render
@@ -33,7 +37,11 @@ module TabsHelper
     def render_tabs
       content_tag :ul do
         result = @tabs.collect do |tab|
-          content_tag( :li, link_to( content_tag( :span, raw(tab[1]) ), "##{tab[0]}" ) )
+					if tab[4][:ajax]
+          	content_tag( :li, link_to( content_tag( :span, raw(tab[1]) ), "#{tab[0]}" ) )
+					else
+          	content_tag( :li, link_to( content_tag( :span, raw(tab[1]) ), "##{tab[0]}" ) )
+					end
         end.join
 				raw(result)
       end
@@ -41,7 +49,11 @@ module TabsHelper
 
     def  render_bodies
       @tabs.collect do |tab|
-        content_tag( :div, capture( &tab[3] ), tab[2].merge( :id => tab[0] ) )
+				if tab[4][:ajax]
+        	# there are no divs for ajaxed tabs
+				else
+        	content_tag( :div, capture( &tab[3] ), tab[2].merge( :id => tab[0] ) )
+				end
       end.join.to_s
     end
 
