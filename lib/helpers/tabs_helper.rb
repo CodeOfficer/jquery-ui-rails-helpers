@@ -29,7 +29,7 @@ module TabsHelper
     end
 
     def render
-      content_tag( :div, raw([render_tabs, render_bodies]), { :id => :tabs }.merge( @options ) )
+      content_tag( :div, raw([render_tabs, render_bodies].join), { :id => :tabs }.merge( @options ) )
     end
 
   private #  ---------------------------------------------------------------------------
