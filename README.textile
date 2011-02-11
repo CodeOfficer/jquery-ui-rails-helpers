@@ -11,10 +11,10 @@ This helper simplifies the code required to use the jQuery UI Tab plugin.
 <pre><code>
 <% tabs_for do |tab| %>
 	<% tab.create('tab_one', 'Tab 1') do %>
-    # ... insert tab contents
+		# ... insert tab contents
 	<% end %>
 	<% tab.create('tab_two', 'Tab 2') do %>
-    # ... insert tab contents
+		# ... insert tab contents
 	<% end %>
 <% end %>
 </code></pre>
@@ -23,19 +23,19 @@ The above will generate this HTML in your view:
 
 <pre><code>
 <div id="tabs">
-  <ul>
-    <li><a href="#tab_one"><span>Tab 1</span></a></li>
-    <li><a href="#tab_two"><span>Tab 2</span></a></li>
-  </ul>
-  <div id="tab_one">
-    # ... insert tab contents
-  </div>
-  <div id="tab_two">
-    # ... insert tab contents
-  </div>
+	<ul>
+		<li><a href="#tab_one"><span>Tab 1</span></a></li>
+		<li><a href="#tab_two"><span>Tab 2</span></a></li>
+	</ul>
+	<div id="tab_one">
+		# ... insert tab contents
+	</div>
+	<div id="tab_two">
+		# ... insert tab contents
+	</div>
 </div>
 </code></pre>
-  
+	
 Tabs will be rendered in the order you create them.
 
 You can easily render a tab conditionally by appending your condition to the end of 
@@ -53,7 +53,7 @@ DIV as you like ...
 <pre><code>
 <% tabs_for(:class => 'zippy') do |tab| %>
 	<% tab.create('tab_one', 'Tab 1', :style => 'background: #FFF') do %>
-    # ... insert tab contents
+		# ... insert tab contents
 	<% end %>
 <% end %>
 </code></pre>

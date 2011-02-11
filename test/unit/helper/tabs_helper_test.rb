@@ -4,9 +4,9 @@ class TabsHelperTest < ActionView::TestCase
 
 	context "creating tabs without a block syntax" do
 		should 'raises an exception' do
-      assert_raise ArgumentError do
-        @tabs = tabs_for
-      end
+			assert_raise ArgumentError do
+				@tabs = tabs_for
+			end
 		end
 	end
 
@@ -51,11 +51,11 @@ class TabsHelperTest < ActionView::TestCase
 end
 
 # <div id="tabs">
-# 	<ul>
-# 		<li><a href="#tab_one"><span>One</span></a></li>
-# 		<li><a href="#tab_two"><span>Two</span></a></li>
-# 		<li><a href="http://www.codeofficer.com/"><span>Ajax</span></a></li>
-# 	</ul>
-# 	<div id="tab_one">Tab One.</div>
-# 	<div id="tab_two">Tab Two.</div>
+#		<ul>
+#			<li><a href="#tab_one"><span>One</span></a></li>
+#			<li><a href="#tab_two"><span>Two</span></a></li>
+#			<li><a href="http://www.codeofficer.com/"><span>Ajax</span></a></li>
+#		</ul>
+#		<div id="tab_one">Tab One.</div>
+#		<div id="tab_two">Tab Two.</div>
 # </div>

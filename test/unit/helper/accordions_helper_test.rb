@@ -4,9 +4,9 @@ class AccordionsHelperTest < ActionView::TestCase
 
 	context "creating accordions without a block syntax" do
 		should 'raises an exception' do
-      assert_raise ArgumentError do
-        @accordions = accordions_for
-      end
+			assert_raise ArgumentError do
+				@accordions = accordions_for
+			end
 		end
 	end
 
@@ -32,8 +32,8 @@ class AccordionsHelperTest < ActionView::TestCase
 end
 
 # <div id="accordions">
-# 	<h3 id="accordion_one"><a href="#">One</a></h3>
-# 	<div>Accordion Two.</div>
-# 	<h3 id="accordion_two"><a href="#">Two</a></h3>
-# 	<div>Accordion One.</div>
+#		<h3 id="accordion_one"><a href="#">One</a></h3>
+#		<div>Accordion Two.</div>
+#		<h3 id="accordion_two"><a href="#">Two</a></h3>
+#		<div>Accordion One.</div>
 # </div>

@@ -1,16 +1,20 @@
+== 01-24-2011
+
+	* rewrote for rails 3 && (ruby 1.8 || ruby 1.9), added tests
+
 == 03-07-2009
 
- * big change: removed the 2nd param for concat, rails no longer requires the binding be passed.
- * added a helper for creating accordions
+	* big change: removed the 2nd param for concat, rails no longer requires the binding be passed.
+	* added a helper for creating accordions
 
 == 09-04-2008
 
- * big change: renamed classes, and helper 'tabs_for' now requires a block
+	* big change: renamed classes, and helper 'tabs_for' now requires a block
 
-== 08-28-2008 
- 
- * added the ability to call TabsRenderer.new with a block parameter
+== 08-28-2008
+
+	* added the ability to call TabsRenderer.new with a block parameter
 
 == 06-22-2008 initial import
- 
- * TabsRenderer added
+
+	* TabsRenderer added

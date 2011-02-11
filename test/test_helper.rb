@@ -22,13 +22,13 @@ class ActionView::TestCase
 	setup :shhhhhh_url_helpers
 
 	def shhhhhh_url_helpers
- 		def @controller._routes
- 			Module.new do
- 				def self.url_helpers
- 					Module.new
- 				end
- 			end
- 		end
+		def @controller._routes
+			Module.new do
+				def self.url_helpers
+					Module.new
+				end
+			end
+		end
 	end
 
 end
