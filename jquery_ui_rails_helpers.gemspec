@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{jquery_ui_rails_helpers}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bearded Studio", "CodeOfficer"]
@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "CHANGELOG",
+    "Gemfile",
+    "Gemfile.lock",
     "MIT-LICENSE",
     "README.md",
     "Rakefile",
@@ -24,10 +26,11 @@ Gem::Specification.new do |s|
     "autotest/discover.rb",
     "init.rb",
     "install.rb",
+    "jquery_ui_rails_helpers.gemspec",
     "lib/jquery_ui_rails_helpers.rb",
     "lib/jquery_ui_rails_helpers/accordions_helper.rb",
-    "lib/jquery_ui_rails_helpers/railtie.rb",
     "lib/jquery_ui_rails_helpers/tabs_helper.rb",
+    "spec/lib/tabs_helper_spec.rb",
     "spec/spec_helper.rb",
     "uninstall.rb"
   ]
