@@ -10,10 +10,10 @@ TabsHelper
 
 Helps generate HTML for use with the jQuery UI Tabs plugin. (Examples are in HAML, because your views should be in HAML. http://haml-lang.com/)
 
-    - tabs_for do |tab|
-    	- tab.create('tab_one', 'Tab 1') do
+    - ui_tabs do |widget|
+    	- widget.tab('tab_one', 'Tab 1') do
         Tab contents
-    	- tab.create('tab_two', 'Tab 2') do
+    	- widget.tab('tab_two', 'Tab 2') do
     	  Tab contents
 
 The above will generate this HTML in your view:
@@ -36,8 +36,8 @@ Tabs will be rendered in the order you create them.
 You can pass HTML options to either the parent DIV or any individual tab's
 DIV as you like ...
 
-    - tabs_for :html => { :class => 'zippy' } do |tab|
-    	- tab.create 'tab_one', 'Tab 1', :html => { :style => 'background: #FFF' } do
+    - ui_tabs :html => { :class => 'zippy' } do |tab|
+    	- widget.tab 'tab_one', 'Tab 1', :html => { :style => 'background: #FFF' } do
         Tab contents
 
 The default DOM ID for the parent div is ... id="tabs" ... unless you pass in an HTML
@@ -67,5 +67,5 @@ Javascript Generation
 By default, Javascript for the generated HTML is saved via content_for to the identifier :jquery_ui_helpers. You can specify a custom identifier with 
 the parameter :script_for
 
-    - tabs_for :script_for => :scripts do |tab|
+    - ui_tabs :script_for => :scripts do |widget|
       ...

@@ -3,7 +3,7 @@ require "jquery_ui_rails_helpers/jquery_ui_base"
 module TabsHelper
   include JqueryUiRailsHelpers::UiHelper
 
-  def tabs_for(opts={}, &block)
+  def ui_tabs(opts={}, &block)
     ui(opts, JqueryUiTabs, &block)
   end
   
@@ -17,7 +17,7 @@ module TabsHelper
       yield self if block_given?
     end
   
-    def create(tab_id, tab_text, opts={}, &block)
+    def tab(tab_id, tab_text, opts={}, &block)
       content = @controller.capture(&block)
       opts = { :html => {} }.merge(opts)
     
