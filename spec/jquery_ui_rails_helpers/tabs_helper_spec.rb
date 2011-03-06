@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe TabsHelper do
   include ActionView::Helpers
-  include Haml::Helpers
+  # include Haml::Helpers
   include TabsHelper, ActionView::Helpers::CaptureHelper,
   ActionView::Helpers::JavaScriptHelper
   

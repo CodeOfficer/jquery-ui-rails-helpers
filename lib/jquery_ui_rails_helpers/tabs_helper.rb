@@ -45,7 +45,6 @@ module TabsHelper
         ActionView::Helpers::UrlHelper
 
       def initialize(tab_id, tab_text, options, content)
-        puts options.inspect
         @html_id, @text, @options, @content = tab_id, tab_text, options, content
       end
 
