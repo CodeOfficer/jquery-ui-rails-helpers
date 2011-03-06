@@ -6,7 +6,7 @@ require 'action_pack'
 require 'action_view'
 require 'action_controller'
 require 'action_view/template'
-require 'jquery_ui_rails_helpers/tabs_helper'
+require 'jquery_ui_rails_helpers'
 
 RSpec.configure do |c|
   # c.filter_run :focus => true

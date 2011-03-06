@@ -36,7 +36,7 @@ Tabs will be rendered in the order you create them.
 You can pass HTML options to either the parent DIV or any individual tab's
 DIV as you like ...
 
-    - ui_tabs :html => { :class => 'zippy' } do |tab|
+    - ui_tabs :html => { :id => 'special_tabs', :class => 'zippy' } do |tab|
     	- widget.tab 'tab_one', 'Tab 1', :html => { :style => 'background: #FFF' } do
         Tab contents
 
@@ -51,13 +51,12 @@ AccordionHelper
 
 Helps generate HTML for use with the jQuery UI Accordion plugin. (Examples are in HAML, because your views should be in HAML. http://haml-lang.com/)
 
-Usage is identical to the Tabs helper. *I have not yet refactored AccordionHelper, so don't expect it to work! Also, expect 
-the helper name to change from "accordions_for" to "accordion_for", as the name of the jQuery UI widget is singular. -michaek*
+Usage is identical to the Tabs helper.
 
-    - accordions_for do |accordion|
-    	- accordion.create('accordion_one', 'Accordion 1') do
+    - ui_accordion do |widget|
+    	- widget.pane('accordion_one', 'Accordion 1') do
         Accordion contents
-    	- accordion.create('accordion_two', 'Accordion 2') do
+    	- widget.pane('accordion_two', 'Accordion 2') do
     	  Accordion contents
 
 
