@@ -1,12 +1,11 @@
 require "spec_helper"
 
 describe TabsHelper do
-  include ActionView::Helpers
-  # include Haml::Helpers
-  include TabsHelper, ActionView::Helpers::CaptureHelper,
-  ActionView::Helpers::JavaScriptHelper
+  include ActionView::Helpers,
+          ActionView::Helpers::CaptureHelper,
+          ActionView::Helpers::JavaScriptHelper,
+          TabsHelper
   
-
   # allow tabs.create to run by stubbing an output_buffer
   attr_accessor :output_buffer
   @output_buffer = ""
