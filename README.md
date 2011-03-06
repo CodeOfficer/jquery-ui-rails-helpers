@@ -80,3 +80,7 @@ the parameter :script_for
 
     - ui_tabs :script_for => :scripts do |widget|
       ...
+
+You'll output that, at the bottom of the page beneath where you load jQuery, using:
+
+    = yield :jquery_ui_helpers
