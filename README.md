@@ -3,7 +3,6 @@ What Is It?
 
 It's a Ruby on Rails plugin that provides helpers that take some of the boilerplate out of generating HTML for use with jQuery UI. http://jqueryui.com/
 
-Currently, only Tabs is fully implemented, but I'll start simple implementations of other widgets soon.
 
 TabsHelper
 ----------
@@ -58,6 +57,19 @@ Usage is identical to the Tabs helper.
         Accordion contents
     	- widget.pane('accordion_two', 'Accordion 2') do
     	  Accordion contents
+
+The above will generate this HTML in your view:
+
+    <div id="accordion">
+      <h3>Accordion 1</h3>
+      <div id="accordion_one">
+        Accordion contents
+      </div>
+      <h3>Accordion 2</h3>
+      <div id="accordion_two">
+        Accordion contents
+      </div>
+    </div>
 
 
 Javascript Generation
