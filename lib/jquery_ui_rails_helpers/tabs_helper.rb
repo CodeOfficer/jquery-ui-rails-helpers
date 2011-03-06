@@ -1,15 +1,10 @@
 require "jquery_ui_rails_helpers/jquery_ui_base"
 
 module TabsHelper
+  include JqueryUiRailsHelpers::UiHelper
 
   def tabs_for(opts={}, &block)
-    opts = { :html => {}, :ui => {}, :script_for => :jquery_ui_helpers}.merge(opts)
-
-    raise ArgumentError, "Missing block" unless block_given?
-    tabs = JqueryUiTabs.new( opts, self, &block ).render
-    
-    content_for opts[:script_for], tabs.javascript
-    tabs.html
+    ui(opts, JqueryUiTabs, &block)
   end
   
   class JqueryUiTabs < JqueryUiRailsHelpers::JqueryUiBase
