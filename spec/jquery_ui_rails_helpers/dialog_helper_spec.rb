@@ -45,13 +45,13 @@ describe DialogHelper do
   it "should set javascript for the default content identifier" do
     ui_dialog do
     end
-    @_content_for[:jquery_ui_helpers].should include "$('#dialog').dialog();"
+    @_content_for[:jquery_ui_helpers].should include "$('#dialog').dialog({ autoOpen: false });"
   end
 
   it "should set javascript for a custom content identifier" do
     ui_dialog :script_for => :blah do
     end
-    @_content_for[:blah].should include "$('#dialog').dialog();"
+    @_content_for[:blah].should include "$('#dialog').dialog({ autoOpen: false });"
   end
 
 end

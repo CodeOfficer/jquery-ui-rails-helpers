@@ -18,7 +18,7 @@ module DialogHelper
       @html = content_tag( :div, @content.html_safe, @html_options)
   
       # generate the javascript for jquery ui
-      @javascript = javascript_tag "$(function(){ $('#%s').dialog(); });" % @html_options[:id]
+      @javascript = javascript_tag "$(function(){ $('#%s').dialog({ autoOpen: false }); });" % @html_options[:id]
 
       # return self, for chaining
       self

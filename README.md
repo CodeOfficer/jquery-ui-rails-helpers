@@ -7,7 +7,7 @@ It's a Ruby on Rails plugin that provides helpers that take some of the boilerpl
 TabsHelper
 ----------
 
-Helps generate HTML for use with the jQuery UI Tabs plugin. (Examples are in HAML, because your views should be in HAML. http://haml-lang.com/)
+Helps generate HTML for use with the jQuery UI Tabs plugin. (Examples are in HAML. http://haml-lang.com/)
 
     - ui_tabs do |widget|
     	- widget.tab('tab_one', 'Tab 1') do
@@ -48,7 +48,7 @@ Options for jQuery UI widgets will be passed in via a :ui parameter, but this is
 AccordionHelper
 ---------------
 
-Helps generate HTML for use with the jQuery UI Accordion plugin. (Examples are in HAML, because your views should be in HAML. http://haml-lang.com/)
+Helps generate HTML for use with the jQuery UI Accordion plugin. (Examples are in HAML. http://haml-lang.com/)
 
 Usage is identical to the Tabs helper.
 
@@ -70,6 +70,27 @@ The above will generate this HTML in your view:
         Accordion contents
       </div>
     </div>
+
+
+DialogHelper
+---------------
+
+Helps generate HTML for use with the jQuery UI Dialog plugin. (Examples are in HAML. http://haml-lang.com/)
+
+    - ui_dialog :html => { :id => 'my_dialog', :title => 'Dialog Title' } do |widget|
+      Dialog contents
+
+The above will generate this HTML in your view:
+
+    <div id="my_dialog" title="Dialog Title">
+      Dialog contents
+    </div>
+
+Which you'll then work with in Javascript by the id:
+
+    $('#my_dialog').dialog('open');
+
+By default, dialogs will be set with "autoOpen: false". In its current form, what the dialog helper offers is perhaps not terribly useful in itself. When :ui parameters are supported, it ought to come into its own! 
 
 
 Javascript Generation
