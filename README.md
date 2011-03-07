@@ -105,3 +105,9 @@ the parameter :script_for
 You'll output that, at the bottom of the page beneath where you load jQuery, using:
 
     = yield :jquery_ui_helpers
+
+
+What's Next?
+------------
+
+There's stub support for progressbar and slider, though for them to have any real use, support for the :ui parameter will need to be implemented. Autocomplete support is planned as well, but the button widget? Seems like there might not be any advantage to generating it with a helper. :)
