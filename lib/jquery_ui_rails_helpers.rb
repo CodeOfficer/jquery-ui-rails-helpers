@@ -10,6 +10,9 @@ require "rails"
 module JqueryUiRailsHelpers
 end
 
-ActionView::Base.send :include, TabsHelper
 ActionView::Base.send :include, AccordionHelper
+ActionView::Base.send :include, AutocompleteHelper
 ActionView::Base.send :include, DialogHelper
+ActionView::Base.send :include, ProgressbarHelper
+ActionView::Base.send :include, SliderHelper
+ActionView::Base.send :include, TabsHelper
