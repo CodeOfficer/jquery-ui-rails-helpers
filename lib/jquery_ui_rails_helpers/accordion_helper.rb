@@ -4,6 +4,7 @@ module AccordionHelper
   include JqueryUiRailsHelpers::UiHelper
 
   def ui_accordion(opts={}, &block)
+    raise ArgumentError, "Missing block" unless block_given?
     ui(opts, JqueryUiAccordion, &block)
   end
   

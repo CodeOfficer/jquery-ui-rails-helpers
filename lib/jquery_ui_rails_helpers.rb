@@ -1,9 +1,10 @@
 # JqueryUiRailsHelpers
-require "jquery_ui_rails_helpers/tabs_helper"
 require "jquery_ui_rails_helpers/accordion_helper"
+require "jquery_ui_rails_helpers/autocomplete_helper"
 require "jquery_ui_rails_helpers/dialog_helper"
-require "jquery_ui_rails_helpers/slider_helper"
 require "jquery_ui_rails_helpers/progressbar_helper"
+require "jquery_ui_rails_helpers/slider_helper"
+require "jquery_ui_rails_helpers/tabs_helper"
 require "rails"
 
 module JqueryUiRailsHelpers

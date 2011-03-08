@@ -10,7 +10,8 @@ module SliderHelper
   class JqueryUiSlider < JqueryUiRailsHelpers::JqueryUiBase
     def initialize(opts={}, controller, &block)
       @html_options = { :id => :slider }.merge( opts[:html] )
-      @content = controller.capture(&block) || ""
+      @content = controller.capture(&block) if block_given?
+      @content = @content || ""
     end
 
     def render

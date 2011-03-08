@@ -21,8 +21,7 @@ describe DialogHelper do
   end
 
   it "should be empty, with an empty block" do
-    output = ui_dialog do
-    end
+    output = ui_dialog
     output.should == "<div id=\"dialog\" title=\"\"></div>"
   end
 

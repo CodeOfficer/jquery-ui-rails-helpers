@@ -5,8 +5,7 @@ describe ProgressbarHelper do
           ProgressbarHelper
 
   it "should have a default display" do
-    output = ui_progressbar do
-    end
+    output = ui_progressbar
     output.should == "<div id=\"progressbar\"></div>"
   end
 

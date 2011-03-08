@@ -5,8 +5,7 @@ describe SliderHelper do
           SliderHelper
 
   it "should have a default display" do
-    output = ui_slider do
-    end
+    output = ui_slider
     output.should == "<div id=\"slider\"></div>"
   end
 

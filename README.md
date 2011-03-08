@@ -48,7 +48,7 @@ Options for jQuery UI widgets will be passed in via a :ui parameter, but this is
 AccordionHelper
 ---------------
 
-Helps generate HTML for use with the jQuery UI Accordion plugin. (Examples are in HAML. http://haml-lang.com/)
+Helps generate HTML for use with the jQuery UI Accordion widget. (Examples are in HAML. http://haml-lang.com/)
 
 Usage is identical to the Tabs helper.
 
@@ -75,7 +75,7 @@ The above will generate this HTML in your view:
 DialogHelper
 ---------------
 
-Helps generate HTML for use with the jQuery UI Dialog plugin. (Examples are in HAML. http://haml-lang.com/)
+Helps generate HTML for use with the jQuery UI Dialog widget. (Examples are in HAML. http://haml-lang.com/)
 
     - ui_dialog :html => { :id => 'my_dialog', :title => 'Dialog Title' } do |widget|
       Dialog contents
@@ -91,6 +91,31 @@ Which you'll then work with in Javascript by the id:
     $('#my_dialog').dialog('open');
 
 By default, dialogs will be set with "autoOpen: false". In its current form, what the dialog helper offers is perhaps not terribly useful in itself. When :ui parameters are supported, it ought to come into its own! 
+
+
+AutocompleteHelper
+---------------
+
+Helps generate HTML for use with the jQuery UI Autocomplete widget. (Examples are in HAML. http://haml-lang.com/)
+
+    - ui_autocomplete
+
+The above will generate this HTML in your view:
+
+    <div id="autocomplete">
+      <input type="text" />
+    </div>
+
+You can pass your own form field and other html in a block, but you should be sure to include an input of type text, as that's what the generated Javascript looks for.
+
+    - ui_autocomplete :html => { :id => 'my_autocomplete' } do
+      = text_field :post
+
+The above will generate this HTML in your view:
+
+    <div id="my_autocomplete">
+      <input type="text" name="post" id="post" />
+    </div>
 
 
 Javascript Generation

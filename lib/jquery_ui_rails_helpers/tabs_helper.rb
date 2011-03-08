@@ -4,6 +4,7 @@ module TabsHelper
   include JqueryUiRailsHelpers::UiHelper
 
   def ui_tabs(opts={}, &block)
+    raise ArgumentError, "Missing block" unless block_given?
     ui(opts, JqueryUiTabs, &block)
   end
   
