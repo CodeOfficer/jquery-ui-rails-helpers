@@ -23,16 +23,23 @@ describe AutocompleteHelper do
     output.should == "<div class=\"foo\" id=\"blah\"><input type=\"text\" /></div>"
   end
 
+  it "should set ui options" do
+    output = ui_autocomplete :ui => { :source => 'http://example.com/foos' } do |widget|
+      # empty for now
+    end
+    @_content_for[:jquery_ui_helpers].should include "$('#autocomplete input:text').autocomplete({\"source\":\"http://example.com/foos\"});"
+  end
+
   it "should set javascript for the default content identifier" do
     ui_autocomplete do
     end
-    @_content_for[:jquery_ui_helpers].should include "$('#autocomplete input:text').autocomplete();"
+    @_content_for[:jquery_ui_helpers].should include "$('#autocomplete input:text').autocomplete({\"source\":[]});"
   end
 
   it "should set javascript for a custom content identifier" do
     ui_autocomplete :script_for => :blah do
     end
-    @_content_for[:blah].should include "$('#autocomplete input:text').autocomplete();"
+    @_content_for[:blah].should include "$('#autocomplete input:text').autocomplete({\"source\":[]});"
   end
 
 end

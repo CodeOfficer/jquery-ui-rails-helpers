@@ -11,6 +11,7 @@ module AutocompleteHelper
   class JqueryUiAutocomplete < JqueryUiRailsHelpers::JqueryUiBase
     def initialize(opts={}, controller, &block)
       @html_options = { :id => :autocomplete }.merge( opts[:html] )
+      @ui_options = { :source => [] }.merge( opts[:ui] )
       @content = controller.capture(&block) if block_given?
       @content = @content || tag(:input, :type => 'text')
     end
@@ -20,7 +21,7 @@ module AutocompleteHelper
       @html = content_tag( :div, @content.html_safe, @html_options)
   
       # generate the javascript for jquery ui
-      @javascript = javascript_tag "$(function(){ $('#%s input:text').autocomplete(); });" % @html_options[:id]
+      @javascript = javascript_tag "$(function(){ $('#%s input:text').autocomplete(%s); });" % [@html_options[:id], @ui_options.to_json]
 
       # return self, for chaining
       self
