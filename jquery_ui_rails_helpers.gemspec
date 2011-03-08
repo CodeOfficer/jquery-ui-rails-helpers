@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bearded Studio", "CodeOfficer"]
-  s.date = %q{2011-03-06}
+  s.date = %q{2011-03-08}
   s.description = %q{JQuery UI helpers you can use in your Rails apps}
   s.email = [""]
   s.extra_rdoc_files = [
@@ -28,8 +28,17 @@ Gem::Specification.new do |s|
     "jquery_ui_rails_helpers.gemspec",
     "lib/jquery_ui_rails_helpers.rb",
     "lib/jquery_ui_rails_helpers/accordion_helper.rb",
+    "lib/jquery_ui_rails_helpers/autocomplete_helper.rb",
+    "lib/jquery_ui_rails_helpers/dialog_helper.rb",
     "lib/jquery_ui_rails_helpers/jquery_ui_base.rb",
+    "lib/jquery_ui_rails_helpers/progressbar_helper.rb",
+    "lib/jquery_ui_rails_helpers/slider_helper.rb",
     "lib/jquery_ui_rails_helpers/tabs_helper.rb",
+    "spec/jquery_ui_rails_helpers/accordion_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/autocomplete_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/dialog_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/progressbar_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/slider_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/tabs_helper_spec.rb",
     "spec/spec_helper.rb",
     "uninstall.rb"
@@ -41,6 +50,10 @@ Gem::Specification.new do |s|
   s.summary = %q{JQuery UI helpers you can use in your Rails apps}
   s.test_files = [
     "spec/jquery_ui_rails_helpers/accordion_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/autocomplete_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/dialog_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/progressbar_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/slider_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/tabs_helper_spec.rb",
     "spec/spec_helper.rb"
   ]
