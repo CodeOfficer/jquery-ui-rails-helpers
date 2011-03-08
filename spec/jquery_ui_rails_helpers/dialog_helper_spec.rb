@@ -1,9 +1,7 @@
 require "spec_helper"
 
 describe DialogHelper do
-  include ActionView::Helpers,
-          ActionView::Helpers::CaptureHelper,
-          ActionView::Helpers::JavaScriptHelper,
+  include ControllerTestHelpers,
           DialogHelper
   
   # allow tabs.create to run by stubbing an output_buffer
