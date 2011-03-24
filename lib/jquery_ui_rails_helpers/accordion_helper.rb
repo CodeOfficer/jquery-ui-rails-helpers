@@ -12,6 +12,7 @@ module AccordionHelper
     def initialize(opts={}, controller, &block)
       @panels = []
       @controller = controller
+      @ui_options = {}.merge( opts[:ui] )
       @html_options = { :id => :accordion }.merge( opts[:html] )
     
       yield self if block_given?
@@ -19,9 +20,9 @@ module AccordionHelper
   
     def panel(panel_id, panel_title, opts={}, &block)
       content = @controller.capture(&block)
-      opts = { :html => {} }.merge(opts)
+      opts = { :html => {}, :header_html => {} }.merge(opts)
       
-      header = content_tag( :h3, link_to( content_tag( :span, panel_title ), "#%s" % panel_id ) )
+      header = content_tag( :h3, link_to( content_tag( :span, panel_title ), "#%s" % panel_id ), opts[:header_html] )
       panel = content_tag( :div, content, opts[:html].merge( :id => panel_id ) )
       
       @panels << (header + panel)
@@ -32,7 +33,7 @@ module AccordionHelper
       @html = content_tag( :div, @panels.join('').html_safe, @html_options)
   
       # generate the javascript for jquery ui
-      @javascript = javascript_tag "$(function(){ $('#%s').accordion(); });" % @html_options[:id]
+      @javascript = javascript_tag "$(function(){ $('#%s').accordion(%s); });" % [@html_options[:id], @ui_options.to_json]
 
       # return self, for chaining
       self
