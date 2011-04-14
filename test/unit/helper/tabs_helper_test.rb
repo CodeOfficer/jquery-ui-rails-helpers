@@ -16,7 +16,6 @@ class TabsHelperTest < ActionView::TestCase
 				tab.create('tab_one', 'One') { "Tab One." }
 				tab.create('tab_two', 'Two') { "Tab Two." }
 			end
-			puts @tabs
 		end
 
 		should 'have proper dom structure' do
