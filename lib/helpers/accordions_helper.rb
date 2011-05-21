@@ -35,7 +35,7 @@ module AccordionsHelper
 		end
 
 		def accordion_body(accordion)
-			content_tag :div, capture( &accordion[3] )
+			content_tag( :div, &accordion[3] )
 		end
 
 		def method_missing( *args, &block )
