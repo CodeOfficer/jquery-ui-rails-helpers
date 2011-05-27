@@ -52,7 +52,7 @@ module TabsHelper
 				if tab[4][:ajax]
 					# there are no divs for ajaxed tabs
 				else
-					content_tag( :div, capture( &tab[3] ), tab[2].merge( :id => tab[0] ) )
+					content_tag( :div, tab[2].merge( :id => tab[0] ), & tab[3])
 				end
 			end.join.to_s
 		end

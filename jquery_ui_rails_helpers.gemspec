@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 	s.homepage			= "http://www.codeofficer.com/"
 	s.description 	= "jQuery UI Rails Helpers"
 
-	s.add_development_dependency("rails", "~> 3.0.0")
+	s.add_development_dependency("rails", ">= 3.0.0")
 	s.add_development_dependency("shoulda", "~> 3.0.0.beta2")
 
 	s.files					= `git ls-files`.split("\n")
