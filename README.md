@@ -206,7 +206,57 @@ Github project: https://github.com/filamentgroup/jQuery-Slider
 
 Demo page: http://www.filamentgroup.com/examples/slider_v2/index.html
 
+DateRangePicker
+------------
 
+Here is an example of an JSON options struture that can be passed in (see http://filamentgroup.com/examples/daterangepicker_v2/index2.php)
+
+        {
+          presetRanges: [
+            {text: 'Ad Campaign', dateStart: 'Today', dateEnd: '03/07/09' },
+            {text: 'Spring Vacation', dateStart: '03/04/09', dateEnd: '03/08/09' },
+            {text: 'Office Closed', dateStart: '04/04/09', dateEnd: '04/08/09' }
+          ], 
+          posX: null,
+          posY: null,
+          arrows: true, 
+          dateFormat: 'M d, yy',
+          rangeSplitter: 'to',
+          datepickerOptions: {
+            changeMonth: true,
+            changeYear: true
+          },
+          onOpen:function(){ if(inframe){ $(window.parent.document).find('iframe:eq(1)').width(700).height('35em');} }, 
+            onClose: function(){ if(inframe){ $(window.parent.document).find('iframe:eq(1)').width('100%').height('5em');} }
+        } 
+
+Tree
+-----------
+
+Examples:
+
+    ui_tree :ui => {:expanded => 'li:first'}
+
+    ui_branch :link => ['Google', 'www.google.com', {:id => 'google'}] do
+      [
+        ui_leaf(:label => 'Hello'), 
+        ui_leaf(:label => 'Bye')
+      ].safe_join
+    end
+
+    ui_tree :ui => {:expanded => 'li:first'} do
+      ui_branch :link => ['Google', 'www.google.com', {:id => 'google'}] do
+        ui_leaf :label => 'Goodbye'
+      end
+    end
+
+Themeswitcher
+------------
+
+You might find this useful ;)
+
+https://github.com/kristianmandrup/ui_themeswitcher
+       
 What's Next?
 ------------
 

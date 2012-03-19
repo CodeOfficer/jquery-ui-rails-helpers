@@ -7,6 +7,8 @@ require "jquery_ui_rails_helpers/slider_helper"
 require "jquery_ui_rails_helpers/select_slider_helper"
 require "jquery_ui_rails_helpers/tabs_helper"
 require "jquery_ui_rails_helpers/button_helper"
+require "jquery_ui_rails_helpers/daterange_helper"
+require "jquery_ui_rails_helpers/tree_helper"
 # require "jquery_ui_rails_helpers/fg_button_helper"
 
 require "rails"
@@ -24,4 +26,6 @@ ActionView::Base.send :include, SliderHelper
 ActionView::Base.send :include, SelectSliderHelper
 ActionView::Base.send :include, TabsHelper
 ActionView::Base.send :include, ButtonHelper
+ActionView::Base.send :include, DateRangeHelper
+ActionView::Base.send :include, TreeHelper
 # ActionView::Base.send :include, FgButtonHelper
