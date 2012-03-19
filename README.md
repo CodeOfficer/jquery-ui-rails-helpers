@@ -132,7 +132,91 @@ You'll output that, at the bottom of the page beneath where you load jQuery, usi
     = yield :jquery_ui_helpers
 
 
+Progressbar
+-------------
+
+Use it something like this:
+
+  = ui_progressbar :html => {:id => 'uploader', :class => 'progress'}
+
+It also supports the :ui options hash for advanced config.
+
+Button
+-------------
+
+Use it something like this:
+
+  = ui_button :ui => {:icons => {primary:'ui-icon-gear'}}
+
+  = ui_button :label => 'Save'
+
+  = ui_button do
+    "Save me"
+  end
+
+It supports the :ui options hash for advanced config.
+
+Button Set
+-------------
+
+Use it something like this:
+
+  = ui_buttonset :labels => ['B', 'I']
+
+  = ui_buttonset :labels => ['B', 'I'], :type => 'radio'
+
+  = ui_buttonset :labels => ['B', 'I'], :type => 'checkbox', :selected => ['B']
+
+It also supports the :ui options hash for advanced config. By default the type is 'radio'.
+
+
+Slider
+-------------
+
+Use it something like this:
+
+  = ui_slider :html => {:id => 'rooms_slider', :class => 'slider'}, :ui => {:animate => true}
+
+
+SelectSlider
+-------------
+
+This helper uses the Filamentgroup SelectSlider, which sits on top of the jQuery UI Slider and enhances it with tooltips, labels and ARIA support etc.
+
+You can use it something like this:
+
+    = ui_select_slider :html => {:id => 'rooms', :class => 'slider rooms'}, :ui => {:labels => 5}, :labels => (1..5).to_a, :range => [1,3]
+
+    = ui_select_slider :html => {:id => 'sqm', :class => 'slider sqm'}, :ui => {:labels => 3}, :labels => (1..10).to_a.map{|v| v*10}, :range => [30,60]
+
+This will generate two SELECT tags, one with a postfix id of '_from' and the other '_to', fx in the example above id='rooms_from' and id='rooms_to'
+
+You can do CSS tooltip customization. Here we want to make the tooltip more slim than the default 8 character width. For other style customizations, see 'ui_slider.extras.css'
+
+    a#handle_rooms_to .ui-slider-tooltip,
+    a#handle_rooms_from .ui-slider-tooltip {
+      width: 1em !important;
+      margin-left: 0;
+    }
+
+For more details see http://www.filamentgroup.com
+Reference article: http://filamentgroup.com/lab/update_jquery_ui_slider_from_a_select_element_now_with_aria_support/
+
+Github project: https://github.com/filamentgroup/jQuery-Slider
+
+Demo page: http://www.filamentgroup.com/examples/slider_v2/index.html
+
+
 What's Next?
 ------------
 
-There's stub support for progressbar and slider, though for them to have any real use, support for the :ui parameter will need to be implemented. Autocomplete support is planned as well, but the button widget? Seems like there might not be any advantage to generating it with a helper. :)
+The Filamentgroup has made some nice widgets. The SelectSlider is one such example. This gem should support more of these widgets ;)
+
+https://github.com/filamentgroup/jQuery-Menu
+https://github.com/filamentgroup/jQuery-Custom-Input
+https://github.com/filamentgroup/jQuery-Tree-Control
+https://github.com/filamentgroup/jQuery-Custom-File-Input
+https://github.com/filamentgroup/jQuery-UI-Date-Range-Picker
+
+http://www.filamentgroup.com/lab/styling_buttons_and_toolbars_with_the_jquery_ui_css_framework/
+
