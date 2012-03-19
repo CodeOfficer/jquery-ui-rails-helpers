@@ -7,6 +7,7 @@ require 'action_pack'
 require 'action_view'
 require 'action_controller'
 require 'action_view/template'
+
 require 'jquery_ui_rails_helpers'
 
 module ControllerTestHelpers

@@ -19,13 +19,13 @@ describe SliderHelper do
   it "should set javascript for the default content identifier" do
     ui_slider do
     end
-    @_content_for[:jquery_ui_helpers].should include "$('#slider').slider();"
+    @_content_for[:jquery_ui_helpers].should include "$('#slider').slider({});"
   end
 
   it "should set javascript for a custom content identifier" do
     ui_slider :script_for => :blah do
     end
-    @_content_for[:blah].should include "$('#slider').slider();"
+    @_content_for[:blah].should include "$('#slider').slider({});"
   end
 
 end

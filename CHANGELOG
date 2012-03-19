@@ -1,3 +1,10 @@
+== 03-19-2012
+
+	* Added support for Filamentgroup UI Select Slider with labels and tooltips
+	* Added vendor folder with Select Slider assets which should be added to Sprocket path
+		* select_ui_slider.js
+		* ui_slider.extras.css
+
 == 01-24-2011
 
 	* rewrote for rails 3 && (ruby 1.8 || ruby 1.9), added tests
