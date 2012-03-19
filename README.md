@@ -250,6 +250,33 @@ Examples:
       end
     end
 
+Menu
+------------
+
+See spec/examples
+Includes iPod "flyout" style menu.
+
+      // MENUS      
+    $('#flat').menu({ 
+      content: $('#flat').next().html(), // grab content from this page
+      showSpeed: 400 
+    });
+    
+    $('#hierarchy').menu({
+      content: $('#hierarchy').next().html(),
+      crumbDefaultText: ' '
+    });
+    
+    $('#hierarchybreadcrumb').menu({
+      content: $('#hierarchybreadcrumb').next().html(),
+      backLink: false
+    });
+    
+    // or from an external source
+    $.get('menuContent.html', function(data){ // grab content from another page
+      $('#flyout').menu({ content: data, flyOut: true });
+    });
+
 Themeswitcher
 ------------
 

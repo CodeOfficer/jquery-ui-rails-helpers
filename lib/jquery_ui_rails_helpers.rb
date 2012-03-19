@@ -9,6 +9,8 @@ require "jquery_ui_rails_helpers/tabs_helper"
 require "jquery_ui_rails_helpers/button_helper"
 require "jquery_ui_rails_helpers/daterange_helper"
 require "jquery_ui_rails_helpers/tree_helper"
+require "jquery_ui_rails_helpers/fileinput_helper"
+require "jquery_ui_rails_helpers/menu_helper"
 # require "jquery_ui_rails_helpers/fg_button_helper"
 
 require "rails"
@@ -28,4 +30,6 @@ ActionView::Base.send :include, TabsHelper
 ActionView::Base.send :include, ButtonHelper
 ActionView::Base.send :include, DateRangeHelper
 ActionView::Base.send :include, TreeHelper
+ActionView::Base.send :include, FileinputHelper
+ActionView::Base.send :include, MenuHelper
 # ActionView::Base.send :include, FgButtonHelper
