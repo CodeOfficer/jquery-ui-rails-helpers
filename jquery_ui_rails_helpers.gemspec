@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "jquery_ui_rails_helpers"
-  s.version = "0.1.1"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bearded Studio", "CodeOfficer"]
-  s.date = "2012-03-19"
+  s.date = "2012-03-20"
   s.description = "JQuery UI helpers you can use in your Rails apps"
   s.email = [""]
   s.extra_rdoc_files = [
@@ -32,28 +32,62 @@ Gem::Specification.new do |s|
     "lib/jquery_ui_rails_helpers.rb",
     "lib/jquery_ui_rails_helpers/accordion_helper.rb",
     "lib/jquery_ui_rails_helpers/autocomplete_helper.rb",
+    "lib/jquery_ui_rails_helpers/button_helper.rb",
+    "lib/jquery_ui_rails_helpers/daterange_helper.rb",
     "lib/jquery_ui_rails_helpers/dialog_helper.rb",
+    "lib/jquery_ui_rails_helpers/fg_button_helper.rb",
+    "lib/jquery_ui_rails_helpers/fileinput_helper.rb",
     "lib/jquery_ui_rails_helpers/jquery_ui_base.rb",
+    "lib/jquery_ui_rails_helpers/menu_helper.rb",
     "lib/jquery_ui_rails_helpers/progressbar_helper.rb",
     "lib/jquery_ui_rails_helpers/select_slider_helper.rb",
     "lib/jquery_ui_rails_helpers/slider_helper.rb",
     "lib/jquery_ui_rails_helpers/tabs_helper.rb",
+    "lib/jquery_ui_rails_helpers/tree_helper.rb",
     "lib/jquery_ui_rails_helpers/version.rb",
     "lib/rails_plugin/engine.rb",
+    "spec/examples/full_menu.html",
+    "spec/examples/menu.html",
     "spec/jquery_ui_rails_helpers/accordion_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/autocomplete_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/button_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/buttonset_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/daterange_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/dialog_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/enhance.js",
+    "spec/jquery_ui_rails_helpers/fg_button_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/fileinput_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/menu_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/progressbar_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/select_slider_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/slider_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/tabs_helper_spec.rb",
+    "spec/jquery_ui_rails_helpers/tree_helper_spec.rb",
     "spec/spec_helper.rb",
     "test/test_helper.rb",
     "test/unit/helper/accordions_helper_test.rb",
     "test/unit/helper/tabs_helper_test.rb",
     "uninstall.rb",
-    "vendor/assets/javascripts/select_ui_slider.js",
-    "vendor/assets/stylesheets/ui_slider.extras.css"
+    "vendor/assets/images/fileinput/bg-btn.png",
+    "vendor/assets/images/fileinput/bg-submit.gif",
+    "vendor/assets/images/fileinput/icon-generic.gif",
+    "vendor/assets/images/fileinput/icon-image.gif",
+    "vendor/assets/images/fileinput/icon-media.gif",
+    "vendor/assets/images/fileinput/icon-zip.gif",
+    "vendor/assets/images/tree/icon-file.gif",
+    "vendor/assets/images/tree/icon-folder-open.gif",
+    "vendor/assets/images/tree/icon-folder.gif",
+    "vendor/assets/javascripts/fg.menu.jquery.js",
+    "vendor/assets/javascripts/ui.daterange_picker.jquery.js",
+    "vendor/assets/javascripts/ui.fileinput.jquery.js",
+    "vendor/assets/javascripts/ui.select_slider.jquery.js",
+    "vendor/assets/javascripts/ui.tree.jquery.js",
+    "vendor/assets/javascripts/util.date.js",
+    "vendor/assets/stylesheets/fg.menu.jquery.css",
+    "vendor/assets/stylesheets/ui.daterange_picker.css",
+    "vendor/assets/stylesheets/ui.fileinput.css",
+    "vendor/assets/stylesheets/ui.select_slider.css",
+    "vendor/assets/stylesheets/ui.tree.css"
   ]
   s.homepage = "https://github.com/beardedstudio/jquery_ui_rails_helpers"
   s.licenses = ["MIT"]
