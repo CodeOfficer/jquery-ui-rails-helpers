@@ -42,7 +42,7 @@ module TreeHelper
       @html = content_tag( :ul, inner_content, @html_options)
   
       # generate the javascript for jquery ui
-      javascript      
+      set_javascript
 
       # return self, for chaining
       self
@@ -50,7 +50,7 @@ module TreeHelper
 
     protected
 
-    def javascript
+    def set_javascript
       @javascript = javascript_tag "$(function(){ $('#%s').tree(%s); });" % [@html_options[:id], @ui_options.to_json]
     end
 

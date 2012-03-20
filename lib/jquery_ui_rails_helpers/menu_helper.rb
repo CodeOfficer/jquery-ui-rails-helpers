@@ -18,7 +18,7 @@ module MenuHelper
       super
     end
 
-    def javascript
+    def set_javascript
       @javascript = javascript_tag "$(function(){ $('#%s').menu(%s); });" % [@html_options[:id], @ui_options.to_json]
     end
   end

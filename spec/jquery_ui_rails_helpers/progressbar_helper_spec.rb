@@ -19,13 +19,13 @@ describe ProgressbarHelper do
   it "should set javascript for the default content identifier" do
     ui_progressbar do
     end
-    @_content_for[:jquery_ui_helpers].should include "$('#progressbar').progressbar();"
+    @_content_for[:jquery_ui_helpers].should include "$('#progressbar').progressbar({});"
   end
 
   it "should set javascript for a custom content identifier" do
     ui_progressbar :script_for => :blah do
     end
-    @_content_for[:blah].should include "$('#progressbar').progressbar();"
+    @_content_for[:blah].should include "$('#progressbar').progressbar({});"
   end
 
 end

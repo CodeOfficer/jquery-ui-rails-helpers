@@ -11,7 +11,6 @@ describe MenuHelper do
 
   it "should set javascript for the default content identifier" do
     ui_menu :ui => {:maxHeight => 180}
-    puts @_content_for[:jquery_ui_helpers]
 
     @_content_for[:jquery_ui_helpers].should include "$('#menu').menu({\"maxHeight\":180});"
   end
@@ -22,7 +21,6 @@ describe MenuHelper do
         ui_leaf :label => 'Goodbye'
       end
     end
-    # puts output
 
     output.should == "<ul id=\"menu\"><li><ul><li><a href=\"www.google.com\" id=\"google\">Google</a><ul><li><a href=\"#\">Goodbye</a></li></ul></li></ul></li></ul>"
   end
