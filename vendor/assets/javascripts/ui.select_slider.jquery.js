@@ -40,7 +40,6 @@ jQuery.fn.selectToUISlider = function(settings){
 	//array of all option elements in select element (ignores optgroups)
 	var selectOptions = (function(){
 		var opts = [];
-		console.log('selects:', selects);
 		selects.eq(0).find('option').each(function(){
 			opts.push({
 				value: jQuery(this).attr('value'),
@@ -73,8 +72,6 @@ jQuery.fn.selectToUISlider = function(settings){
 	}
 	//return tooltip text from option index
 	function ttText(optIndex){
-		console.log(optIndex);
-		console.log(selectOptions);
 		return (options.tooltipSrc == 'text') ? selectOptions[optIndex].text : selectOptions[optIndex].value;
 	}
 	

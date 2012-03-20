@@ -15,7 +15,7 @@ require "jquery_ui_rails_helpers/menu_helper"
 
 require "rails"
 
-require 'rails_plugin/engine'
+require 'jquery_ui_rails_helpers/rails_plugin/engine'
 
 module JqueryUiRailsHelpers
 end
