@@ -10,6 +10,8 @@ require 'action_view/template'
 
 require 'jquery_ui_rails_helpers'
 
+# JqueryUiHelpers::Rails::Engine.add_view_ext
+
 module ControllerTestHelpers
 
   def self.included(base)

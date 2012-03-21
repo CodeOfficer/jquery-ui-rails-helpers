@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "jquery_ui_rails_helpers"
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bearded Studio", "CodeOfficer"]
-  s.date = "2012-03-20"
+  s.date = "2012-03-21"
   s.description = "JQuery UI helpers you can use in your Rails apps"
   s.email = [""]
   s.extra_rdoc_files = [
@@ -26,9 +26,6 @@ Gem::Specification.new do |s|
     "init.rb",
     "install.rb",
     "jquery_ui_rails_helpers.gemspec",
-    "lib/helpers/accordions_helper.rb",
-    "lib/helpers/javascripts_helper.rb",
-    "lib/helpers/tabs_helper.rb",
     "lib/jquery_ui_rails_helpers.rb",
     "lib/jquery_ui_rails_helpers/accordion_helper.rb",
     "lib/jquery_ui_rails_helpers/autocomplete_helper.rb",
@@ -45,7 +42,6 @@ Gem::Specification.new do |s|
     "lib/jquery_ui_rails_helpers/tabs_helper.rb",
     "lib/jquery_ui_rails_helpers/tree_helper.rb",
     "lib/jquery_ui_rails_helpers/version.rb",
-    "lib/rails_plugin/engine.rb",
     "spec/examples/full_menu.html",
     "spec/examples/menu.html",
     "spec/jquery_ui_rails_helpers/accordion_helper_spec.rb",
@@ -64,9 +60,6 @@ Gem::Specification.new do |s|
     "spec/jquery_ui_rails_helpers/tabs_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/tree_helper_spec.rb",
     "spec/spec_helper.rb",
-    "test/test_helper.rb",
-    "test/unit/helper/accordions_helper_test.rb",
-    "test/unit/helper/tabs_helper_test.rb",
     "uninstall.rb",
     "vendor/assets/images/fileinput/bg-btn.png",
     "vendor/assets/images/fileinput/bg-submit.gif",

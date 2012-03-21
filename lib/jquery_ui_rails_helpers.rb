@@ -15,21 +15,9 @@ require "jquery_ui_rails_helpers/menu_helper"
 
 require "rails"
 
-require 'jquery_ui_rails_helpers/rails_plugin/engine'
+require 'jquery_ui_rails_helpers/rails/engine'
 
 module JqueryUiRailsHelpers
 end
 
-ActionView::Base.send :include, AccordionHelper
-ActionView::Base.send :include, AutocompleteHelper
-ActionView::Base.send :include, DialogHelper
-ActionView::Base.send :include, ProgressbarHelper
-ActionView::Base.send :include, SliderHelper
-ActionView::Base.send :include, SelectSliderHelper
-ActionView::Base.send :include, TabsHelper
-ActionView::Base.send :include, ButtonHelper
-ActionView::Base.send :include, DateRangeHelper
-ActionView::Base.send :include, TreeHelper
-ActionView::Base.send :include, FileinputHelper
-ActionView::Base.send :include, MenuHelper
 # ActionView::Base.send :include, FgButtonHelper
