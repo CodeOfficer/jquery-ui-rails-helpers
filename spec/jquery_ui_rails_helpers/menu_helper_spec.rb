@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe MenuHelper do
+describe JqueryUI::MenuHelper do
   include ControllerTestHelpers,
-          MenuHelper
+          JqueryUI::MenuHelper
 
   it "should have a default display" do
     output = ui_menu

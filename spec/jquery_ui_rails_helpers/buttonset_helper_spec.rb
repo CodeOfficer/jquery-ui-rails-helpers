@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe ButtonSetHelper do
+describe JqueryUI::ButtonSetHelper do
   include ControllerTestHelpers,
-          ButtonSetHelper
+          JqueryUI::ButtonSetHelper
 
   it "should have a default display" do
     output = ui_buttonset

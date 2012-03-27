@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe ProgressbarHelper do
+describe JqueryUI::ProgressbarHelper do
   include ControllerTestHelpers,
-          ProgressbarHelper
+          JqueryUI::ProgressbarHelper
 
   it "should have a default display" do
     output = ui_progressbar

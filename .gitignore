@@ -16,4 +16,5 @@ doc
 
 # jeweler generated
 pkg
+.DS_Store
 

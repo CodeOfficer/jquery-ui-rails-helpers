@@ -2,7 +2,7 @@ module JqueryUiHelpers
   module Rails
     class Engine < ::Rails::Engine
     	initializer "setup for rails" do
-    		puts "JqueryUiHelpers engine loaded"
+    		# puts "JqueryUiHelpers engine loaded"
     		JqueryUiHelpers::Rails::Engine.add_view_ext
       end
 

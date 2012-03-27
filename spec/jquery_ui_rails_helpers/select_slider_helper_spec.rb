@@ -6,9 +6,9 @@
 
 require "spec_helper"
 
-describe SelectSliderHelper do
+describe JqueryUI::SelectSliderHelper do
   include ControllerTestHelpers,
-          SelectSliderHelper
+          JqueryUI::SelectSliderHelper
 
   it "should have a default display" do
     output = ui_select_slider

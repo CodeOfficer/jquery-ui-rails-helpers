@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe DialogHelper do
+describe JqueryUI::DialogHelper do
   include ControllerTestHelpers,
-          DialogHelper
+          JqueryUI::DialogHelper
   
   # allow tabs.create to run by stubbing an output_buffer
   attr_accessor :output_buffer

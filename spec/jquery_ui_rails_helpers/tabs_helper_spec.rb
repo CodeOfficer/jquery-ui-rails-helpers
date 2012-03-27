@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe TabsHelper do
+describe JqueryUI::TabsHelper do
   include ControllerTestHelpers,
-          TabsHelper
+          JqueryUI::TabsHelper
 
   it "should be empty, with an empty block" do
     output = ui_tabs do

@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe AccordionHelper do
+describe JqueryUI::AccordionHelper do
   include ControllerTestHelpers,
-          AccordionHelper
+          JqueryUI::AccordionHelper
 
   it "should be empty, with an empty block" do
     output = ui_accordion do

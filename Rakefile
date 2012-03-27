@@ -23,7 +23,7 @@ Jeweler::Tasks.new do |gem|
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
   #  gem.add_development_dependency 'rspec', '> 1.2.3'
-  gem.files.include ['lib/*/*', 'vendor/*/*']
+  gem.files.include ['lib/*/*']
 end
 Jeweler::RubygemsDotOrgTasks.new
 

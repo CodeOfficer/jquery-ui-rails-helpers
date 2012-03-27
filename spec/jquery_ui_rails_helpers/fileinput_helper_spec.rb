@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe FileinputHelper do
+describe JqueryUI::FileinputHelper do
   include ControllerTestHelpers,
-          FileinputHelper
+          JqueryUI::FileinputHelper
 
   it "should have a default display" do
     output = ui_fileinput

@@ -6,67 +6,69 @@
 
 require "jquery_ui_rails_helpers/jquery_ui_base"
 
-module SelectSliderHelper
-  include JqueryUiRailsHelpers::UiHelper
+module JqueryUI
+  module SelectSliderHelper
+    include JqueryUiRailsHelpers::UiHelper
 
-  def ui_select_slider(opts={}, &block)
-    ui(opts, JqueryUiSelectSlider, &block)
-  end
-  
-  class JqueryUiSelectSlider < JqueryUiRailsHelpers::JqueryUiBase
-    def initialize(opts={}, controller, &block)
-      @html_options = { :id => :select_slider }.merge( opts[:html] )
-      @ui_options = {}.merge opts[:ui]
-
-
-      @labels = {}.merge get_labels(opts[:labels] || [])
-      @range = opts[:range]
-
-      @content = controller.capture(&block) if block_given?
-      @content = @content || ""
+    def ui_select_slider(opts={}, &block)
+      ui(opts, JqueryUiSelectSlider, &block)
     end
+    
+    class JqueryUiSelectSlider < JqueryUiRailsHelpers::JqueryUiBase
+      def initialize(opts={}, controller, &block)
+        @html_options = { :id => :select_slider }.merge( opts[:html] )
+        @ui_options = {}.merge opts[:ui]
 
-    def render
-      @content = render_labels unless @labels.empty?
 
-      unless @range
-        @html = content_tag( :select, @content.html_safe, @html_options)
-      else
-        render_range_tags
-        @html = content_tag( :select, @content_from.html_safe, @html_options.merge(id_from))
-        @html << content_tag( :select, @content_to.html_safe, @html_options.merge(id_to))
+        @labels = {}.merge get_labels(opts[:labels] || [])
+        @range = opts[:range]
+
+        @content = controller.capture(&block) if block_given?
+        @content = @content || ""
       end
 
-      # generate the javascript for jquery ui
-      @javascript = javascript_tag "$(function(){ $('#%s').selectToUISlider(%s); });" % [@html_options[:id], @ui_options.to_json]
+      def render
+        @content = render_labels unless @labels.empty?
 
-      # return self, for chaining
-      self
-    end
+        unless @range
+          @html = content_tag( :select, @content.html_safe, @html_options)
+        else
+          render_range_tags
+          @html = content_tag( :select, @content_from.html_safe, @html_options.merge(id_from))
+          @html << content_tag( :select, @content_to.html_safe, @html_options.merge(id_to))
+        end
 
-    protected
+        # generate the javascript for jquery ui
+        @javascript = javascript_tag "$(function(){ $('#%s').selectToUISlider(%s); });" % [@html_options[:id], @ui_options.to_json]
 
-    def id_from
-      {:id => @html_options[:id].to_s + '_from'}
-    end
+        # return self, for chaining
+        self
+      end
 
-    def id_to
-      {:id => @html_options[:id].to_s + '_to'}
-    end
+      protected
 
-    def render_range_tags
-      @content_from = render_labels @range.first
-      @content_to = render_labels @range.last
-    end
+      def id_from
+        {:id => @html_options[:id].to_s + '_from'}
+      end
 
-    def get_labels labels
-      labels.kind_of?(Array) ? labels.inject({}){|res, val| res[val.to_s] = val.to_s; res} : labels
-    end
+      def id_to
+        {:id => @html_options[:id].to_s + '_to'}
+      end
 
-    def render_labels selected = ''
-      @labels.inject("") do |res, element|
-        sel = (selected && element.last.to_s == selected.to_s)
-        res << content_tag(:option, element.first.html_safe, {:value => element.last, :selected => sel})
+      def render_range_tags
+        @content_from = render_labels @range.first
+        @content_to = render_labels @range.last
+      end
+
+      def get_labels labels
+        labels.kind_of?(Array) ? labels.inject({}){|res, val| res[val.to_s] = val.to_s; res} : labels
+      end
+
+      def render_labels selected = ''
+        @labels.inject("") do |res, element|
+          sel = (selected && element.last.to_s == selected.to_s)
+          res << content_tag(:option, element.first.html_safe, {:value => element.last, :selected => sel})
+        end
       end
     end
   end

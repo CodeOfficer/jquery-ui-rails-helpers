@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe ButtonHelper do
+describe JqueryUI::ButtonHelper do
   include ControllerTestHelpers,
-          ButtonHelper
+          JqueryUI::ButtonHelper
 
   it "should have a default display and label" do
     output = ui_button

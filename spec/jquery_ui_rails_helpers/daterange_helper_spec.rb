@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe DateRangeHelper do
+describe JqueryUI::DateRangeHelper do
   include ControllerTestHelpers,
-          DateRangeHelper
+          JqueryUI::DateRangeHelper
 
   it "should have a default display" do
     output = ui_daterange

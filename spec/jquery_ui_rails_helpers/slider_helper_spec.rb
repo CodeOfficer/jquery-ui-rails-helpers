@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe SliderHelper do
+describe JqueryUI::SliderHelper do
   include ControllerTestHelpers,
-          SliderHelper
+          JqueryUI::SliderHelper
 
   it "should have a default display" do
     output = ui_slider

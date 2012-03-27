@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe AutocompleteHelper do
+describe JqueryUI::AutocompleteHelper do
   include ControllerTestHelpers,
-          AutocompleteHelper
+          JqueryUI::AutocompleteHelper
 
   it "should be empty, with an empty block" do
     output = ui_autocomplete

@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe TreeHelper do
+describe JqueryUI::TreeHelper do
   include ControllerTestHelpers,
-          TreeHelper
+          JqueryUI::TreeHelper
 
   it "should have a default display" do
     output = ui_tree
