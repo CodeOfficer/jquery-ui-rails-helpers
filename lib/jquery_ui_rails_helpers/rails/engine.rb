@@ -7,19 +7,18 @@ module JqueryUiHelpers
       end
 
       def self.add_view_ext
-				ActionView::Base.send :include, AccordionHelper
-				ActionView::Base.send :include, AutocompleteHelper
-				ActionView::Base.send :include, DialogHelper
-				ActionView::Base.send :include, ProgressbarHelper
-				ActionView::Base.send :include, SliderHelper
-				ActionView::Base.send :include, SelectSliderHelper
-				ActionView::Base.send :include, TabsHelper
-				ActionView::Base.send :include, ButtonHelper
-				ActionView::Base.send :include, DateRangeHelper
-				ActionView::Base.send :include, TreeHelper
-				ActionView::Base.send :include, FileinputHelper
-				ActionView::Base.send :include, MenuHelper
+      	helpers.each do |helper|
+					ActionView::Base.send :include, "JqueryUI::#{helper}".constantize
+				end
 			end
+
+			def self.helpers
+      	[
+      		:AccordionHelper, :AutocompleteHelper, :DialogHelper, :ProgressbarHelper, 
+      		:SliderHelper, :SelectSliderHelper, :TabsHelper, :ButtonHelper, :DateRangeHelper, 
+      		:TreeHelper, :FileinputHelper, :MenuHelper
+      	]
+			end				
 
 			def self.add_controller_ext
       	# ActionController::Base.send(:include, UiControllerExtensions)
