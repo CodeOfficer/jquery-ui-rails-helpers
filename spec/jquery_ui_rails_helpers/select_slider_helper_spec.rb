@@ -35,9 +35,8 @@ describe JqueryUI::SelectSliderHelper do
   end
 
   it "should set javascript for a custom content identifier" do
-    ui_select_slider :script_for => :blah do
-    end
-    @_content_for[:blah].should include "$('#select_slider').selectToUISlider({});"
+    ui_select_slider :ui => {hideSelect: true, scaleAndTics: false}, range: (1..3), :script_for => :blah
+    @_content_for[:blah].should include "$('select#select_slider_from, select#select_slider_to').selectToUISlider({\"hideSelect\":true,\"scaleAndTics\":false});"
   end
 
   it "should set javascript for the default content identifier" do
@@ -47,7 +46,7 @@ describe JqueryUI::SelectSliderHelper do
   end
 
   it "should set javascript for the default content identifier" do
-    output = ui_select_slider :ui => {:labels => 7}, :labels => ['1', 2, 3], :range => [1,3] do
+    output = ui_select_slider :ui => {:labels => 7, hideSelect: true}, :labels => ['1', 2, 3], :range => [1,3] do
     end
     output.should == "<select id=\"select_slider_from\"><option selected=\"selected\" value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option></select><select id=\"select_slider_to\"><option value=\"1\">1</option><option value=\"2\">2</option><option selected=\"selected\" value=\"3\">3</option></select>"
   end
