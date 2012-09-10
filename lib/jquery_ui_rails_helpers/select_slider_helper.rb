@@ -15,6 +15,8 @@ module JqueryUI
     end
     
     class JqueryUiSelectSlider < JqueryUiRailsHelpers::JqueryUiBase
+      # can also call with html_options[:ids] = ['from', 'to'] 
+      # where each id is the "to" and "from" id of a selector for that range
       def initialize(opts={}, controller, &block)
         @html_options = { :id => :select_slider }.merge( opts[:html] )
         @ui_options = {}.merge opts[:ui]
@@ -39,7 +41,11 @@ module JqueryUI
         end
 
         # generate the javascript for jquery ui
-        @javascript = javascript_tag "$(function(){ $('#%s').selectToUISlider(%s); });" % [@html_options[:id], @ui_options.to_json]
+        @javascript = if @html_options[:ids]
+          javascript_tag "$(function(){ $('select#%s, select#%s').selectToUISlider(%s); });" % [@html_options[:ids].first, @html_options[:ids].last, @ui_options.to_json]
+        else
+          javascript_tag "$(function(){ $('#%s').selectToUISlider(%s); });" % [@html_options[:id], @ui_options.to_json]
+        end
 
         # return self, for chaining
         self
