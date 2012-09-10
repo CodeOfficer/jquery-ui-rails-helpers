@@ -5,17 +5,18 @@
 
 Gem::Specification.new do |s|
   s.name = "jquery_ui_rails_helpers"
-  s.version = "0.1.4"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Bearded Studio", "CodeOfficer"]
-  s.date = "2012-03-21"
+  s.authors = ["Bearded Studio", "CodeOfficer", "Kristian Mandrup"]
+  s.date = "2012-09-10"
   s.description = "JQuery UI helpers you can use in your Rails apps"
   s.email = [""]
   s.extra_rdoc_files = [
     "README.md"
   ]
   s.files = [
+    ".rspec",
     "CHANGELOG",
     "Gemfile",
     "Gemfile.lock",
@@ -32,16 +33,15 @@ Gem::Specification.new do |s|
     "lib/jquery_ui_rails_helpers/button_helper.rb",
     "lib/jquery_ui_rails_helpers/daterange_helper.rb",
     "lib/jquery_ui_rails_helpers/dialog_helper.rb",
-    "lib/jquery_ui_rails_helpers/fg_button_helper.rb",
     "lib/jquery_ui_rails_helpers/fileinput_helper.rb",
     "lib/jquery_ui_rails_helpers/jquery_ui_base.rb",
     "lib/jquery_ui_rails_helpers/menu_helper.rb",
     "lib/jquery_ui_rails_helpers/progressbar_helper.rb",
+    "lib/jquery_ui_rails_helpers/rails/engine.rb",
     "lib/jquery_ui_rails_helpers/select_slider_helper.rb",
     "lib/jquery_ui_rails_helpers/slider_helper.rb",
     "lib/jquery_ui_rails_helpers/tabs_helper.rb",
     "lib/jquery_ui_rails_helpers/tree_helper.rb",
-    "lib/jquery_ui_rails_helpers/version.rb",
     "spec/examples/full_menu.html",
     "spec/examples/menu.html",
     "spec/jquery_ui_rails_helpers/accordion_helper_spec.rb",
@@ -50,8 +50,6 @@ Gem::Specification.new do |s|
     "spec/jquery_ui_rails_helpers/buttonset_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/daterange_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/dialog_helper_spec.rb",
-    "spec/jquery_ui_rails_helpers/enhance.js",
-    "spec/jquery_ui_rails_helpers/fg_button_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/fileinput_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/menu_helper_spec.rb",
     "spec/jquery_ui_rails_helpers/progressbar_helper_spec.rb",
@@ -70,6 +68,7 @@ Gem::Specification.new do |s|
     "vendor/assets/images/tree/icon-file.gif",
     "vendor/assets/images/tree/icon-folder-open.gif",
     "vendor/assets/images/tree/icon-folder.gif",
+    "vendor/assets/javascripts/enhance.js",
     "vendor/assets/javascripts/fg.menu.jquery.js",
     "vendor/assets/javascripts/ui.daterange_picker.jquery.js",
     "vendor/assets/javascripts/ui.fileinput.jquery.js",
@@ -85,7 +84,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/beardedstudio/jquery_ui_rails_helpers"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.24"
   s.summary = "JQuery UI helpers you can use in your Rails apps"
 
   if s.respond_to? :specification_version then

@@ -18,11 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{JQuery UI helpers you can use in your Rails apps}
   gem.description = %Q{JQuery UI helpers you can use in your Rails apps}
   gem.email = [""]
-  gem.authors = ["Bearded Studio", "CodeOfficer"]
-  # Include your dependencies below. Runtime dependencies are required when using your gem,
-  # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
+  gem.authors = ["Bearded Studio", "CodeOfficer", "Kristian Mandrup"]
   gem.files.include ['lib/*/*']
 end
 Jeweler::RubygemsDotOrgTasks.new
