@@ -36,15 +36,15 @@ module JqueryUI
           @html = content_tag( :select, @content.html_safe, @html_options)
         else
           render_range_tags
-          @html_options[:ids] = [id_from, id_to]
+          ids = [id_from[:id], id_to[:id]]
 
           @html = content_tag( :select, @content_from.html_safe, @html_options.merge(id_from))
           @html << content_tag( :select, @content_to.html_safe, @html_options.merge(id_to))
         end
 
         # generate the javascript for jquery ui
-        @javascript = if @html_options[:ids]
-          javascript_tag "$(function(){ $('select#%s, select#%s').selectToUISlider(%s); });" % [@html_options[:ids].first, @html_options[:ids].last, @ui_options.to_json]
+        @javascript = if ids
+          javascript_tag "$(function(){ $('select#%s, select#%s').selectToUISlider(%s); });" % [ids.first, ids.last, @ui_options.to_json]
         else
           javascript_tag "$(function(){ $('#%s').selectToUISlider(%s); });" % [@html_options[:id], @ui_options.to_json]
         end

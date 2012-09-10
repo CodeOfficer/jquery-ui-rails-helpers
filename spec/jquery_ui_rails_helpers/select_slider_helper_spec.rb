@@ -29,6 +29,12 @@ describe JqueryUI::SelectSliderHelper do
   end
 
   it "should set javascript for a custom content identifier" do
+    output = ui_select_slider :html => {:id => 'rooms', :class => 'slider rooms'}, :ui => {:labels => 5}, :labels => (1..5).to_a, :range => [1,3], :script_for => :rooms
+    output.should == "<select class=\"slider rooms\" id=\"rooms_from\"><option selected=\"selected\" value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option></select><select class=\"slider rooms\" id=\"rooms_to\"><option value=\"1\">1</option><option value=\"2\">2</option><option selected=\"selected\" value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option></select>"
+    @_content_for[:rooms].should include "$('select#rooms_from, select#rooms_to').selectToUISlider({\"labels\":5});"
+  end
+
+  it "should set javascript for a custom content identifier" do
     ui_select_slider :script_for => :blah do
     end
     @_content_for[:blah].should include "$('#select_slider').selectToUISlider({});"
