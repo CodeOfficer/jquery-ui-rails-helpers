@@ -284,6 +284,28 @@ You might find this useful ;)
 
 https://github.com/kristianmandrup/ui_themeswitcher
        
+Rails asset pipeline
+-------------
+
+CSS assets:
+
+    fg.menu.jquery
+    ui.daterange_picker
+    ui.fileinput
+    ui.select_slider
+    ui.tree
+
+Javascript assets:
+
+    enhance
+    fg.menu.jquery
+    ui.daterange_picker.jquery
+    ui.fileinput.jquery
+    ui.select_slider.jquery
+    ui.tree.jquery
+
+
+
 What's Next?
 ------------
 
@@ -296,4 +318,5 @@ https://github.com/filamentgroup/jQuery-Custom-File-Input
 https://github.com/filamentgroup/jQuery-UI-Date-Range-Picker
 
 http://www.filamentgroup.com/lab/styling_buttons_and_toolbars_with_the_jquery_ui_css_framework/
+
 

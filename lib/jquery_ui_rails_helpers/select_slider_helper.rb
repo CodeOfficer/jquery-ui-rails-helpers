@@ -36,6 +36,8 @@ module JqueryUI
           @html = content_tag( :select, @content.html_safe, @html_options)
         else
           render_range_tags
+          @html_options[:ids] = [id_from, id_to]
+
           @html = content_tag( :select, @content_from.html_safe, @html_options.merge(id_from))
           @html << content_tag( :select, @content_to.html_safe, @html_options.merge(id_to))
         end
