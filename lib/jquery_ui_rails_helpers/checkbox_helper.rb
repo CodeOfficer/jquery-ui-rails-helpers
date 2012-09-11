@@ -12,7 +12,7 @@ module JqueryUI
       # wrap args using same api
       opts[:html] = opts[:html].merge(:id => :checkbox) if opts[:html]
       opts[:labels] = [opts[:label]]
-      opts[:selected] = [opts[:label] if opts[:selected]
+      opts[:selected] = [opts[:label]] if opts[:selected]
       
       ui(opts, JqueryUiCheckbox, &block)
     end
