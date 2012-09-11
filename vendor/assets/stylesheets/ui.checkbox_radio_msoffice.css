@@ -1,0 +1,47 @@
+/*
+ * CHECKBOX & RADIOBUTTON
+ */
+.style-msoffice .ui-checkbox, .style-msoffice .ui-radiobutton { 
+    width: 13px; height: 13px;
+    padding: 0;
+    border: 0;
+    -moz-border-radius: 0px/*{cornerRadius}*/; -webkit-border-radius: 0px/*{cornerRadius}*/;
+}
+.style-msoffice .ui-checkbox {
+    background: transparent url("./ui.checkbox-ui.radiobutton.style.msoffice/msoffice-checkbox.png") no-repeat left 0px;
+}
+.style-msoffice .ui-radiobutton {
+    background: transparent url("./ui.checkbox-ui.radiobutton.style.msoffice/msoffice-radiobutton.png") no-repeat left 0px;
+}
+.style-msoffice .ui-checkbox.ui-state-hover,
+.style-msoffice .ui-radiobutton.ui-state-hover,
+.style-msoffice .ui-checkbox.ui-state-focus,
+.style-msoffice .ui-radiobutton.ui-state-focus {
+    background-position: left -13px;
+}
+.style-msoffice .ui-checkbox.ui-state-down,
+.style-msoffice .ui-radiobutton.ui-state-down {
+    background-position: left -26px !important;
+}
+.style-msoffice .ui-checkbox.ui-state-checked,
+.style-msoffice .ui-radiobutton.ui-state-checked {
+    background-position: left -39px;
+}
+.style-msoffice .ui-checkbox.ui-state-checked.ui-state-hover,
+.style-msoffice .ui-radiobutton.ui-state-checked.ui-state-hover,
+.style-msoffice .ui-checkbox.ui-state-checked.ui-state-focus,
+.style-msoffice .ui-radiobutton.ui-state-checked.ui-state-focus {
+    background-position: left -52px;
+}
+.style-msoffice .ui-checkbox.ui-state-disabled,
+.style-msoffice .ui-radiobutton.ui-state-disabled {
+  opacity: 1.0 !important;
+    background-position: left -65px !important;
+}
+.style-msoffice .ui-checkbox.ui-state-checked.ui-state-disabled,
+.style-msoffice .ui-radiobutton.ui-state-checked.ui-state-disabled {
+  opacity: 1.0 !important;
+    background-position: left -78px !important;
+}
+
+.style-msoffice .ui-checkbox .ui-icon, .style-msoffice .ui-radiobutton .ui-icon { background: transparent none !important; }

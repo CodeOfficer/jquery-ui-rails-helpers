@@ -4,7 +4,7 @@ module JqueryUiRailsHelpers
     def ui(opts={}, renderer_class, &block)
       opts = { :html => {}, :ui => {}, :script_for => :jquery_ui_helpers}.merge(opts)
 
-      ui_widget = renderer_class.new( opts, self, &block ).render
+      ui_widget = renderer_class.new(opts, self, &block).render
     
       content_for opts[:script_for], ui_widget.javascript
       ui_widget.html

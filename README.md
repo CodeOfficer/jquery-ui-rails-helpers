@@ -277,10 +277,55 @@ Includes iPod "flyout" style menu.
       $('#flyout').menu({ content: data, flyOut: true });
     });
 
+    # a simple flat menu as simple as
+
+    ui_menu do
+      [ui_menu_item(:label => 'Hello'), ui_menu_item(:label => 'Goodbye')].safe_join
+    end    
+
+    # or with a little more spice and precision
+
+    ui_menu do
+      [
+        ui_menu_item(:link => ['Google', 'www.google.com', {:id => 'google'}]), 
+        ui_menu_item(:link => ['Rails', 'www.rails.com', {:id => 'rails'}]), 
+      ].safe_join
+    end
+
+    # or use the ui_branch and ui_leaf from tree to create a nested menu!
+
+    ui_menu :nested => true do
+      ui_branch :link => ['Google', 'www.google.com', {:id => 'google'}] do
+        ui_leaf :label => 'Goodbye'
+      end
+    end
+
+Checkbox
+------------
+
+See http://maninblack.info/_proj/jquery-ui-checkbox-radiobutton/demos/checkbox-radiobutton/
+
+See http://www.openpave.org/~reg/jqueryui-checkbox.html
+
+    = ui_checkbox :label => 'B', :selected => true
+    = ui_checkboxes :labels => ['B', 'I'], :selected => ['B']
+
+Same API as `ui_buttonset` and can still take the :type option, either :radio or checkbox if `ui.checkbox_radio.jquery.js` is used. Otherwise, if `ui.checkbox.js` is used, you should only use the :checkbox type (or better leave it out).
+
+Radiobutton
+------------
+
+See http://maninblack.info/_proj/jquery-ui-checkbox-radiobutton/demos/checkbox-radiobutton/
+
+    = ui_radiobutton :label => 'B', :selected => true
+    = ui_radiobuttons :labels => ['B', 'I'], :type => 'checkbox', :selected => ['B']
+
+Same API as `ui_buttonset` but without the :type option
+
 Themeswitcher
 ------------
 
-You might find this useful ;)
+You might also find the themeswitcher for Rails useful
 
 https://github.com/kristianmandrup/ui_themeswitcher
        
@@ -290,33 +335,41 @@ Rails asset pipeline
 CSS assets:
 
     fg.menu.jquery
+    
+    ui.checkbox
+    ui.checkbox_radio
+    ui.checkbox_radio_msoffice
+    
     ui.daterange_picker
+    
     ui.fileinput
+
     ui.select_slider
+    
     ui.tree
 
 Javascript assets:
 
     enhance
     fg.menu.jquery
+    
+    ui.button.jquery
+    
+    ui.checkbox.jquery
+    ui.checkbox_radio.jquery
+    
     ui.daterange_picker.jquery
+    util.date
+    
     ui.fileinput.jquery
+    
     ui.select_slider.jquery
+    
     ui.tree.jquery
 
+    ui.widget.jquery
+    
 
 
-What's Next?
-------------
-
-The Filamentgroup has made some nice widgets. The SelectSlider is one such example. This gem should support more of these widgets ;)
-
-https://github.com/filamentgroup/jQuery-Menu
-https://github.com/filamentgroup/jQuery-Custom-Input
-https://github.com/filamentgroup/jQuery-Tree-Control
-https://github.com/filamentgroup/jQuery-Custom-File-Input
-https://github.com/filamentgroup/jQuery-UI-Date-Range-Picker
-
-http://www.filamentgroup.com/lab/styling_buttons_and_toolbars_with_the_jquery_ui_css_framework/
 
 
