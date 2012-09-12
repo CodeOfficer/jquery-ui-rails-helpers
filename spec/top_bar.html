@@ -126,7 +126,7 @@
       <span> find <span id="furnishPrefix"></span></span>
 
       <div id="furnish_area">
-        <label for="furnish">5</label>
+        <label for="furnish">any</label>
         <select name="furnish" id="furnish" class="ui-sweet">
           <option value="none">unfurnished</option>
           <option value="full">furnished</option>
@@ -155,48 +155,43 @@
           <option value="300+"/>
         </select>       
       </div>   
-      <span id="size_unit">m2</span>   
+      <span><span id="size_unit">m2</span> with</span>
+      <div id="rooms_area">
+        <label for="rooms">2-3</label>
+        <select name="rooms" id="rooms" class="ui-sweet">
+          <option value="1-2"/>
+          <option value="2-3"/>
+          <option value="3-4"/>
+          <option value="4-5"/>
+          <option value="5+"/>
+          <option value="any">any # of</option>
+        </select>       
+      </div> 
+      <span><span id="rooms_unit">rooms</span> for</span>       
+      <div id="cost_area" class="area">
+        <label for="cost">2000-4000</label>
+        <select name="cost" id="cost" class="ui-sweet">
+          <option value="1000-2000"/>
+          <option value="2000-4000"/>
+          <option value="4000-6000"/>
+          <option value="6000-9000"/>
+          <option value="9000-12000"/>
+          <option value="12000-16000"/>
+          <option value="16000-20000"/>
+          <option value="20000-30000"/>
+          <option value="30000+"/>
+          <option value="any">any amount</option>
+        </select>
+      </div>
+      <span><span id="currency">kr.</span> &nbsp;from </span>
+      <div id="period_area" class="area">
+        <label for="period_from" class="ui-sweet">01/10/2012</label>
+        <input id="period_from" type="date" value="1/10/12" class="date ui-sweet"/>
+        <span>to</span>
+        <label id="period_to" for="period_to" class="ui-sweet">01/04/2013.</label>
+        <input id="period_to_input" type="text" value="1/4/13" class="date ui-sweet"/>
+      </div>
     </div>
-
-    <div id="rooms_area">
-      <label for="rooms">2-3</label>
-      <select name="rooms" id="rooms" class="ui-sweet">
-        <option value="1-2"/>
-        <option value="2-3"/>
-        <option value="3-4"/>
-        <option value="4-5"/>
-        <option value="5+"/>
-        <option value="any">any # of</option>
-      </select>       
-    </div> 
-
-    <span>rooms for</span>   
-    
-    <div id="cost_area" class="area">
-      <label for="cost">2000-4000</label>
-      <select name="cost" id="cost" class="ui-sweet">
-        <option value="1000-2000"/>
-        <option value="2000-4000"/>
-        <option value="4000-6000"/>
-        <option value="6000-9000"/>
-        <option value="9000-12000"/>
-        <option value="12000-16000"/>
-        <option value="16000-20000"/>
-        <option value="20000-30000"/>
-        <option value="30000+"/>
-        <option value="any">any amount</option>
-      </select>
-    </div>
-    <span><span id="currency">kr.</span> &nbsp;from </span>
-    <div id="period_area" class="area">
-      <label for="period_from" class="ui-sweet">01/10/2012</label>
-      <input id="period_from" type="date" value="1/10/12" class="date ui-sweet"/>
-      <span>to</span>
-      <label id="period_to" for="period_to" class="ui-sweet">01/04/2013.</label>
-      <input id="period_to_input" type="text" value="1/4/13" class="date ui-sweet"/>
-    </div>
-
-
     <div id="results">
       <span id="found_number" class="badge">2100</span>
       results found

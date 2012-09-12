@@ -20,7 +20,10 @@
       var menu = $('#' + menuId);      
 
       // find label for selector and link it to menu!
-      $('label[for=' + id + ']').click(function() {
+      var label = $('label[for=' + id + ']');
+      label.addClass('ui-sweet');
+
+      label.click(function() {
         var menuId = $(this).attr('for') + '_menu';
         // toggle menu show/hide on click
         $('ul#' + menuId).toggleClass('hidden');
