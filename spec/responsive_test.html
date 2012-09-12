@@ -1,0 +1,210 @@
+<html>
+  <head>
+    <style type="text/css">
+      #searchbar {
+        padding: 6 6 10 10px;
+        color: silver;
+        font-size: 16px;        
+
+        /* IE10 Consumer Preview */ 
+        background-image: -ms-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* Mozilla Firefox */ 
+        background-image: -moz-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* Opera */ 
+        background-image: -o-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* Webkit (Safari/Chrome 10) */ 
+        background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #575757), color-stop(1, #00131C));
+
+        /* Webkit (Chrome 11+) */ 
+        background-image: -webkit-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* W3C Markup, IE10 Release Preview */ 
+        background-image: linear-gradient(to top, #575757 0%, #00131C 100%);        
+      }
+
+      .search {
+        font-size: 16px;
+        width: 16em;
+
+        margin-top: -1px;
+
+        margin-left: 6px;
+        margin-right: 6px;        
+      }
+
+      a.trigger {
+        color: white;
+        text-decoration: none; 
+        border-bottom:1px dotted orange; 
+        font-weight: normal;
+      }
+
+      ul.ui-menu {        
+        font-size: 10px;
+      }
+
+      .ui-daterangepicker.ui-widget, 
+      .ui-datepicker.ui-widget {
+        font-size: 10px !important;
+      }
+
+      #type_area a {
+        margin-left: 0px !important;
+      }
+
+      .aspacer,
+      input.search,
+      a.input_trigger,
+      a.menu_trigger,
+      a.period_trigger,
+      ul.ui-menu {        
+        margin-left: 6px;
+        margin-right: 6px;
+      }
+
+      ul.ui-menu {
+        position: absolute;
+        z-index: 100;
+      }
+
+      ul.hidden,
+      .hidden {
+        display: none !important;
+      }      
+
+      #menu-wrap {
+        /*border: 1px solid gray;*/      
+        max-width: 600px;
+        margin-right: 20px; 
+      }
+
+      #result-wrap {
+        /*border: 1px solid orange;*/
+        min-width: 150px;
+        margin-right: 20px;
+      }
+
+      #right-wrap {
+        /*border: 1px solid purple;*/
+        min-width: 130px;
+        margin-right: 10px;
+      }
+
+
+      .area {
+        display: inline-block;
+      }
+
+      .inline {
+        display: inline-block;
+      }
+
+      .left {
+        /*border: 1px solid red;*/
+      }
+
+      .right {
+        /*border: 1px solid green;*/
+      }
+
+      .spacer {
+        /*background-color: blue;*/
+      }
+    </style>    
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+<link href="flex.css" rel="stylesheet" type="text/css"/>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+  <script src="js/jquery.ui.1.9.0-rc1.min.js"></script>
+  </head>
+  <body>
+    <div id="searchbar">
+      <div id="left-wrap" class="hbox">
+        <div id="menu-wrap" class="boxFlex">
+          <span>within</span>
+          <div id="radius_area" class="area">        
+            <a id="radius_value" href="#" data-menu="radius_menu" class="menu_trigger trigger">5</a>
+          </div>
+          <span><span id="distance_unit">kms</span> of</span>
+
+      <div id="location_area" class="area">
+        <a id="location_value" href="#" data-input="location_input" class="input_trigger trigger">copenhagen</a>
+        <input id="location_input" type="search" class="hidden search" value="copenhagen" results="5" autosave="search" data-trigger="location_value" data-input="location"> 
+      </div>
+      <span> find <span id="furnishPrefix"></span></span>
+      <div id="furnish_area" class="area">
+        <a id="furnish_value" href="#" data-menu="furnish_menu" class="menu_trigger trigger">any</a>
+      </div>
+      <div id="type_area" class="area"><a id="type_value" href="#" data-menu="type_menu" class="menu_trigger trigger">apartment</a>
+      </div>
+      <span>of</span>  
+      <div id="size_area" class="area">
+        <a id="size_value" href="#" data-menu="size_menu" class="menu_trigger trigger">40-60</a>        
+      </div>   
+      <span><span id="size_unit">m2</span> with</span>       
+      <div id="rooms_area" class="area">
+        <a id="rooms_value" href="#" data-menu="rooms_menu" class="menu_trigger trigger">2-3</a>
+      </div>
+      <span>rooms for</span>   
+      <div id="cost_area" class="area">
+        
+        <a id="cost_value" href="#" data-menu="cost_menu" class="menu_trigger trigger">2000-4000</a>
+      </div>
+      <span><span id="currency">kr.</span> &nbsp;from </span>
+      <div id="period_area" class="area">
+        <a id="period_from" href="#" data-input="period_from_input" class="period_trigger trigger">01/10/2012</a>
+        <span>to</span>
+        <a id="period_to" href="#" data-input="period_to_input" class="period_trigger trigger">01/04/2013.</a>        
+      </div>
+      
+
+        </div>
+        <div class="spacer">&nbsp;</div>
+        <div id="result-wrap" class="boxFlex2">
+          <div id="results">        
+            <span id="found_number" class="badge">2100</span>
+            results found
+          </div>
+          <div id="agent">
+            <button>Create agent</button>
+          </div>
+        </div>
+        <div class="spacer">&nbsp;</div>
+        <div id="right-wrap" class="right vbox">
+          <a class="btn btn-large btn-primary" href="#">
+            <i class="icon-home"></i> Post ad</a>
+
+        <div id="sort_area" class="area">  
+          <span>sorted by</span>
+          <a id="sorting" href="#" data-menu="sort_menu" class="menu_trigger trigger">price</a>        
+        </div>
+<!--
+          <select id="sort">
+            <option value="start_date">by start date</option>
+            <option value="cost">by cost</option>
+            <option value="size">by size</option>
+            <option value="rooms">by # rooms</option>
+          </select>
+-->
+        </div>
+      </div>
+<!--
+      <div id="right-wrap" class="right">
+        <div id="landlord-wrap">
+          <button>Write your ad</button>
+        </div> 
+        <div class="sort-wrap">
+          sort by distance
+        </div>
+      </div>
+-->      
+    </div>
+  </body>
+
+</html>

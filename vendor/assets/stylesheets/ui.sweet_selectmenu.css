@@ -1,0 +1,21 @@
+select.ui-sweet {
+  display: none;
+}
+
+label.ui-sweet {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+ul.ui-sweetmenu {
+  position: absolute;
+  z-index: 100;
+
+  display: inline-block !important;
+  float: none !important;          
+}
+
+ul.hidden,
+.hidden {
+  display: none !important;
+}

@@ -1,0 +1,269 @@
+<html>
+  <head>
+    <style type="text/css">
+
+      .search {
+        font-size: 16px;
+        width: 16em;
+
+        margin-top: -1px;
+
+        margin-left: 6px;
+        margin-right: 6px;        
+      }
+
+      label,
+      a.trigger {
+        color: white;
+        text-decoration: none; 
+        border-bottom:1px dotted orange; 
+        font-weight: normal;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      #searchbar {
+        padding: 6 6 10 10px;
+        color: silver;
+        font-size: 16px;        
+
+        /* IE10 Consumer Preview */ 
+        background-image: -ms-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* Mozilla Firefox */ 
+        background-image: -moz-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* Opera */ 
+        background-image: -o-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* Webkit (Safari/Chrome 10) */ 
+        background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #575757), color-stop(1, #00131C));
+
+        /* Webkit (Chrome 11+) */ 
+        background-image: -webkit-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* W3C Markup, IE10 Release Preview */ 
+        background-image: linear-gradient(to top, #575757 0%, #00131C 100%);        
+      }
+
+      ul.ui-menu {        
+        font-size: 10px;
+      }
+
+      .ui-daterangepicker.ui-widget, 
+      .ui-datepicker.ui-widget {
+        font-size: 10px !important;
+      }
+
+      #type_area a {
+        margin-left: 0px !important;
+      }
+
+      .aspacer,
+      input.search,
+      a.input_trigger,
+      a.period_trigger {        
+        margin-left: 6px;
+        margin-right: 6px;
+      }
+
+      .menu-wrapper {
+        display: -moz-box;
+        display: -webkit-box;
+        display:box;
+        -moz-box-orient: horizontal;
+        -webkit-box-orient: horizontal;
+        box-orient: horizontal;
+        box-align: center;
+      }
+
+      form {
+        display: inline-block;
+      }
+
+    </style>    
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+<link href="../vendor/assets/stylesheets/ui.daterange_picker.css" rel="stylesheet" type="text/css"/>
+
+<link href="../vendor/assets/stylesheets/ui.sweet_selectmenu.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+  <script src="js/ui.core.jquery.js"></script>
+  <script src="js/ui.widget.jquery.js"></script>
+  <script src="js/ui.menu.jquery.js"></script>
+  <script src="js/jquery.ui.1.9.0-rc1.min.js"></script>
+  <script src="js/ui.daterangepicker.min.js"></script>
+
+  <script src="../vendor/assets/javascripts/ui.sweet_selectmenu.js"></script>
+  <script src="../vendor/assets/javascripts/ui.sweet_input.js"></script>
+  </head>
+  <body>
+
+
+<div id="searchbar">
+  <form id="search">      
+    <div class="menu-wrapper">
+      <span>within</span>
+      <div id="radius_area" class="area"> 
+        <label for="radius" class="ui-sweet">5</label>
+        <select name="radius" id="radius" class="ui-sweet">
+          <option value="1"/>
+          <option value="5"/>
+          <option value="10"/>
+          <option value="20"/>
+          <option value="50"/>
+          <option value="100"/>
+          <option value="any">any distance</option>
+        </select>
+      </div>
+      <span><span id="distance_unit">kms</span> of</span>
+      <div id="location_area" class="area">
+        <label for="location" class="ui-sweet">copenhagen</a>
+        <input id="location" name="location" type="search" class="search ui-sweet" value="copenhagen" results="5" autosave="search"> 
+      </div>
+      <span> find <span id="furnishPrefix"></span></span>
+
+      <div id="furnish_area">
+        <label for="furnish">5</label>
+        <select name="furnish" id="furnish" class="ui-sweet">
+          <option value="none">unfurnished</option>
+          <option value="full">furnished</option>
+          <option value="any"/>
+        </select>
+      </div>
+
+      <div id="type_area">
+        <label for="type">apartment</label>
+        <select name="type" id="type" class="ui-sweet">
+          <option value="apartment"/>
+          <option value="house"/>
+          <option value="villa"/>
+        </select>
+      </div>
+      <span>of</span>      
+      <div id="size_area">
+        <label for="size">40-60</label>
+        <select name="size" id="size" class="ui-sweet">
+          <option value="5-20"/>
+          <option value="40-60"/>
+          <option value="60-90"/>
+          <option value="90-130"/>
+          <option value="130-200"/>
+          <option value="200-300"/>
+          <option value="300+"/>
+        </select>       
+      </div>   
+      <span id="size_unit">m2</span>   
+    </div>
+
+    <div id="rooms_area">
+      <label for="rooms">2-3</label>
+      <select name="rooms" id="rooms" class="ui-sweet">
+        <option value="1-2"/>
+        <option value="2-3"/>
+        <option value="3-4"/>
+        <option value="4-5"/>
+        <option value="5+"/>
+        <option value="any">any # of</option>
+      </select>       
+    </div> 
+
+    <span>rooms for</span>   
+    
+    <div id="cost_area" class="area">
+      <label for="cost">2000-4000</label>
+      <select name="cost" id="cost" class="ui-sweet">
+        <option value="1000-2000"/>
+        <option value="2000-4000"/>
+        <option value="4000-6000"/>
+        <option value="6000-9000"/>
+        <option value="9000-12000"/>
+        <option value="12000-16000"/>
+        <option value="16000-20000"/>
+        <option value="20000-30000"/>
+        <option value="30000+"/>
+        <option value="any">any amount</option>
+      </select>
+    </div>
+    <span><span id="currency">kr.</span> &nbsp;from </span>
+    <div id="period_area" class="area">
+      <label for="period_from" class="ui-sweet">01/10/2012</label>
+      <input id="period_from" type="date" value="1/10/12" class="date ui-sweet"/>
+      <span>to</span>
+      <label id="period_to" for="period_to" class="ui-sweet">01/04/2013.</label>
+      <input id="period_to_input" type="text" value="1/4/13" class="date ui-sweet"/>
+    </div>
+
+
+    <div id="results">
+      <span id="found_number" class="badge">2100</span>
+      results found
+    </div>
+  </div>
+</form>
+</div>
+  </body>
+   <script type="text/javascript"> 
+    $(function(){
+      var searchUpdates = {
+        furnish: function(value) {
+          var furnishPrefix = $('#furnishPrefix');
+          var prefix = ''
+          switch (value) {
+            case 'unfurnished': prefix = 'an'; break;
+            case 'furnished': prefix = 'a';
+          };
+          furnishPrefix.text(prefix);
+        },
+        cost: function(value) {
+          var currency = $('#currency');
+          if (value == 'any amount') {
+            currency.text('');
+          } else {
+            currency.text('kr.');
+          }
+        },
+        size: function(value) {
+          var currency = $('#size_unit');
+          if (value == 'any size') {
+            currency.text('');
+          } else {
+            currency.text('m2');
+          }
+        },
+        radius: function(value) {        
+          var currency = $('#distance_unit');
+          if (value == 'any distance') {
+            currency.text('');
+          } else {
+            currency.text('kms');
+          }
+        }
+      };
+
+      $('.ui-sweet').sweetMenu();
+      sweetMenu.activate(searchUpdates);
+
+      $('#period_from_input, #period_to_input').daterangepicker({monthFormat: 'dd/mm/yy', 
+        earliestDate: Date.parse('-1month'), //earliest date allowed 
+        latestDate: Date.parse('+1year'), //latest date allowed 
+        onChange: function() {
+
+        $('#period_from_input, #period_to_input').addClass('hidden');
+
+        var fromVal = $('#period_from_input').val();
+        var fromTxt = $('#period_from');
+        fromTxt.text(fromVal);
+        fromTxt.removeClass('hidden');
+
+        var toVal = $('#period_to_input').val();
+        var toTxt = $('#period_to');
+        toTxt.text(toVal);
+        toTxt.removeClass('hidden');
+
+      }});
+    });  
+  </script>
+</html>

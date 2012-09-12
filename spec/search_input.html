@@ -1,0 +1,89 @@
+
+<!doctype html>
+<html>
+
+<head>
+<title>Custom search clear button ("X") (-webkit-search-cancel-button, WebKit only)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+
+:not(.default)::-webkit-search-cancel-button {
+  -webkit-appearance: none;   /* remove the default WebKit styling */
+}
+
+.example1::-webkit-search-cancel-button:after {
+    content: '';    /* required for :after content to show */
+    display: block;
+
+    /*
+     * Setup dimensions for the custom icon.  Note that these dimensions seem to
+     * affect positioning.
+     */
+    width: 14px;
+    height: 10px;
+    
+    /*
+     * Base64 encoded custom "X" icon
+     * Natively 30x30, but downscaled for highres screens
+     */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);
+
+    /* setup all the background tweaks for our custom icon */
+    background-repeat: no-repeat;
+
+    /* icon size */
+    background-size: 10px;
+
+    /* note: this positioning will need to be tweaked for iOS */
+    background-position: top left;
+}
+
+.example2::-webkit-search-cancel-button:after {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 12px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAABSAQMAAAD94hHYAAAABlBMVEUAAACXl5cNUA2AAAAAAnRSTlP9B0nlx2sAAABxSURBVHhe7dK9DYYgFIXhYywsGYFRHA3djMRFGIGS4gb0XoRg4s9XfRVvcfIMcJCOnKwVLzCN52pAFxOgxISzySIUj1f7Ow/PTm5O3JB+9ha1L15JOfN/d3fLDz++qpkxW7EpG9KrffbIDo0pe2LX7A7qXBSslhfN8AAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: top left;
+}
+
+.example3 {
+  position: relative;  /* anchor for absolutely-positioned :after content */
+}
+
+.example3::-webkit-search-cancel-button:after {
+    position: absolute;
+    content: 'DEL';
+    display: block;
+
+    top: 0;
+    right: 0.5em;
+
+    background-color: yellow;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: top left;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Custom search clear button ("X") (-webkit-search-cancel-button, WebKit only)</h1>
+
+<p>Read the <a href="http://davidbcalhoun.com/2012/more-fun-with-webkit-pseudoelements-webkit-search-cancel-button-or-pseudoclass-inception">blog post</a>.</p>
+
+<p>Tested to work on Chrome 21, iOS 6 (note: will need pixel-nudging), Safari 6</p>
+
+<p><b>Instructions</b>: start typing in the following text fields and observe the functional custom "cancel/clear" icons in the right side of the input field.  All CSS, no JavaScript here.</p>
+
+<p>Default: <input type="search" class="default"></p>
+<p>Custom X icon: <input type="search" class="example1"></p>
+<p>Trashcan icon: <input type="search" class="example2"></p>
+<p>Text, no icon: <input type="search" class="example3"></p>
+
+</body>
+</html>

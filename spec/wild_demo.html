@@ -1,0 +1,399 @@
+<html>
+  <head>
+    <style type="text/css">
+
+      .search {
+        font-size: 16px;
+        width: 16em;
+
+        margin-top: -1px;
+
+        margin-left: 6px;
+        margin-right: 6px;        
+      }
+
+      a {
+        color: white;
+        text-decoration: none; 
+        border-bottom:1px dotted orange; 
+        font-weight: normal;
+      }
+
+      #searchbar {
+        padding: 6 6 10 10px;
+        color: silver;        
+
+        /* IE10 Consumer Preview */ 
+        background-image: -ms-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* Mozilla Firefox */ 
+        background-image: -moz-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* Opera */ 
+        background-image: -o-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* Webkit (Safari/Chrome 10) */ 
+        background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #575757), color-stop(1, #00131C));
+
+        /* Webkit (Chrome 11+) */ 
+        background-image: -webkit-linear-gradient(bottom, #575757 0%, #00131C 100%);
+
+        /* W3C Markup, IE10 Release Preview */ 
+        background-image: linear-gradient(to top, #575757 0%, #00131C 100%);        
+      }
+
+      ul.ui-menu {        
+        font-size: 10px;
+      }
+
+      .ui-daterangepicker.ui-widget, 
+      .ui-datepicker.ui-widget {
+        font-size: 10px !important;
+      }
+
+      #type_area a {
+        margin-left: 0px !important;
+      }
+
+      .aspacer,
+      input.search,
+      a.input_trigger,
+      a.menu_trigger,
+      a.period_trigger,
+      ul.ui-menu {        
+        margin-left: 6px;
+        margin-right: 6px;
+      }
+
+      ul.ui-menu {
+        position: absolute;
+        /*top: -16px;*/
+        z-index: 100;
+      }
+
+      ul.hidden,
+      .hidden {
+        display: none !important;
+      }
+
+      .menu-wrapper {
+display: -moz-box;
+display: -webkit-box;
+display:box;
+-moz-box-orient: horizontal;
+-webkit-box-orient: horizontal;
+box-orient: horizontal;
+box-align: center;
+
+width: 400px;
+      }
+
+      .ui-menu {
+        display: inline-block !important;
+        float: none !important;        
+      }
+
+      form {
+        display: inline-block;
+        /*border: 1px solid black*/
+      }
+
+    </style>    
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+<link href="../vendor/assets/stylesheets/ui.daterange_picker.css" rel="stylesheet" type="text/css"/>
+
+<!--
+  <script src="../vendor/assets/javascripts/jquery-1.8.0.js"></script>
+-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+  <script src="../vendor/assets/javascripts/ui.core.jquery.js"></script>
+  <script src="../vendor/assets/javascripts/ui.widget.jquery.js"></script>
+  <script src="../vendor/assets/javascripts/ui.menu.jquery.js"></script>
+
+  <script src="../vendor/assets/javascripts/jquery.ui.1.9.0-rc1.min.js"></script>
+  
+  <script src="../vendor/assets/javascripts/ui.daterangepicker.min.js"></script>
+  </head>
+  <body>
+    <!-- 
+    http://css-tricks.com/webkit-html5-search-inputs/ 
+    http://azadcreative.com/2010/11/designing-search-boxes-html5-css3/
+
+    http://davidbcalhoun.com/2012/more-fun-with-webkit-pseudoelements-webkit-search-cancel-button-or-pseudoclass-inception
+
+    value="copenhagen" autosave="search"
+    
+
+    <div id="searchbar">
+    within <a id="radius" href="#">5 kms</a> of 
+    
+    <input id="location" type="search" class="search" value="copenhagen" results="5" autosave="search"> find a
+    
+    <span id="furnishment"><a id="fully" href="#">fully</a> or <a id="partial" href="#">partially</a></span> furnished
+    <span id="types"><a id="apartment" href="#">apartment</a> or <a id="house" href="#">house</a></span><br/>
+    with <a id="rooms" href="#">1-2 rooms</a> 
+    and <a id="rooms" href="#">50-60 m2</a> 
+    costing <a id="cost" href="#">2000-4000 DKK</a> 
+    between <a id="period" href="#">1.sep - 1.april</a>
+    <div>
+    -->
+
+  <div id="searchbar">
+    <form id="search">
+      
+      <!-- 
+      <input id="location" name="location" type="text" value="copenhagen"/>
+    -->
+
+      <!--
+      <input id="radius" name="radius" type="text" value="5"/>
+      <input id="furnish" name="furnish" type="text" value="any"/>
+      <input id="type" name="type" type="text" value="apartment"/>
+      <input id="rooms" name="rooms" type="text" value="2-3"/>
+      <input id="size" name="size" type="text" value="20-40"/>
+      <input id="cost" name="cost" type="text" value="2000-4000"/>
+-->
+      <input id="radius" name="radius" type="hidden" value="5"/>
+      <input id="furnish" name="furnish" type="hidden" value="any"/>
+      <input id="type" name="type" type="hidden" value="apartment"/>
+      <input id="rooms" name="rooms" type="hidden" value="2-3"/>
+      <input id="size" name="size" type="hidden" value="20-40"/>
+      <input id="cost" name="cost" type="hidden" value="2000-4000"/>
+
+      <!--
+      <input id="from" name="from" type="text" value="01/10/2012"/>
+      <input id="to" name="to" type="text" value="01/04/2013"/>
+      </form>
+    -->  
+
+    <div class="menu-wrapper">
+      <div>within</div>
+      <a id="radius_value" href="#" data-menu="radius_menu" class="menu_trigger">5</a>
+      <ul id="radius_menu" class="hidden menu" data-trigger="radius_value" data-input="radius">
+        <li><a class="mitem" href="#">1</a></li>
+        <li><a class="mitem" href="#">5</a></li>
+        <li><a class="mitem" href="#">10</a></li>
+        <li><a class="mitem" href="#">20</a></li>
+        <li><a class="mitem" href="#">50</a></li>
+        <li><a class="mitem" href="#">100</a></li>
+        <li><a class="mitem" href="#">any # of</a></li>
+      </ul>
+      <div> kms of</div>
+      <div id="location_area">
+        <a id="location_value" href="#" data-input="location_input" class="input_trigger">copenhagen</a>
+        <input id="location_input" type="search" class="hidden search" value="copenhagen" results="5" autosave="search" data-trigger="location_value" data-input="location"> 
+      </div>
+      <div> find <span id="furnishPrefix"></span></div>
+
+      <div id="furnish_area">
+        <a id="furnish_value" href="#" data-menu="furnish_menu" class="menu_trigger">any</a>
+        <ul id="furnish_menu" class="hidden menu" data-trigger="furnish_value" data-input="furnish">
+          <li><a class="mitem" href="#">unfurnished</a></li>
+          <li><a class="mitem" href="#">furnished</a></li>
+          <li><a class="mitem" href="#">any</a></li>
+        </ul>
+      </div>
+
+      <div id="type_area"><a id="type_value" href="#" data-menu="type_menu" class="menu_trigger">apartment</a>
+      <ul id="type_menu" class="hidden menu" data-trigger="type_value" data-input="type">
+        <li><a class="mitem" href="#">apartment</a></li>
+        <li><a class="mitem" href="#">house</a></li>
+        <li><a class="mitem" href="#">villa</a></li>
+        <li><a class="mitem" href="#">residence</a></li>
+      </ul>      
+      </div>
+      <!--
+    </div>
+
+    <div class="menu-wrapper">
+    -->
+      <div> with </div>
+      <div id="rooms_area">
+        <a id="rooms_value" href="#" data-menu="rooms_menu" class="menu_trigger">2-3</a>
+        <ul id="rooms_menu" class="hidden menu" data-trigger="rooms_value" data-input="rooms">
+          <li><a class="mitem" href="#">1-2</a></li>
+          <li><a class="mitem" href="#">2-3</a></li>
+          <li><a class="mitem" href="#">3-4</a></li>
+          <li><a class="mitem" href="#">4-5</a></li>
+          <li><a class="mitem" href="#">6+</a></li>
+          <li><a class="mitem" href="#">any # of</a></li>
+        </ul>      
+      </div> 
+      <div>rooms and</div>   
+      <div id="size_area">
+        <a id="size_value" href="#" data-menu="size_menu" class="menu_trigger">40-60</a>        
+        <ul id="size_menu" class="hidden menu" data-trigger="size_value" data-input="size">
+          <li><a class="mitem" href="#">6-20</a></li>
+          <li><a class="mitem" href="#">20-40</a></li>
+          <li><a class="mitem" href="#">40-60</a></li>
+          <li><a class="mitem" href="#">60-90</a></li>
+          <li><a class="mitem" href="#">90-130</a></li>
+          <li><a class="mitem" href="#">130-200</a></li>
+          <li><a class="mitem" href="#">200-300</a></li>
+          <li><a class="mitem" href="#">300+</a></li>
+          <li><a class="mitem" href="#">any # of</a></li>
+        </ul>        
+      </div>
+      <div>m2 for</div>
+
+      <div id="cost">
+        
+        <a id="cost_value" href="#" data-menu="cost_menu" class="menu_trigger">2000-4000</a>
+        <ul id="cost_menu" class="hidden menu" data-trigger="cost_value" data-input="cost">
+          <li><a class="mitem" href="#">1-2000</a></li>
+          <li><a class="mitem" href="#">2000-4000</a></li>
+          <li><a class="mitem" href="#">4000-6000</a></li>
+          <li><a class="mitem" href="#">6000-9000</a></li>
+          <li><a class="mitem" href="#">9000-12000</a></li>
+          <li><a class="mitem" href="#">12000-16000</a></li>
+          <li><a class="mitem" href="#">16000-20000</a></li>
+          <li><a class="mitem" href="#">20000-30000</a></li>
+          <li><a class="mitem" href="#">30000+</a></li>
+          <li><a class="mitem" href="#">any # of</a></li>
+        </ul>
+      </div>
+      <div>kr. &nbsp;from </div>
+      <div id="period">
+        <a id="period_from" href="#" data-input="period_from_input" class="period_trigger">01/10/2012</a>
+        <input id="period_from_input" type="text" value="1/10/12" class="hidden date"/>
+        <span>to</span>
+        <a id="period_to" href="#" data-input="period_to_input" class="period_trigger">01/04/2013.</a>
+        <input id="period_to_input" type="text" value="1/4/13" class="hidden date"/>
+      </div>
+    </div>
+
+    </form>
+
+
+  </div>
+    <!--    
+    <span id="furnishment"><a id="fully" href="#">fully</a> or <a id="partial" href="#">partially</a></span> furnished
+    <span id="types"><a id="apartment" href="#">apartment</a> or <a id="house" href="#">house</a></span><br/>
+    with <a id="rooms" href="#">1-2 rooms</a> 
+    and <a id="rooms" href="#">50-60 m2</a> 
+    costing <a id="cost" href="#">2000-4000 DKK</a> 
+    between <a id="period" href="#">1.sep - 1.april</a>
+    <div> 
+    -->     
+  </body>
+   <script type="text/javascript">    
+    $(function(){
+      $('ul.menu').menu();
+
+      $('.menu_trigger').click(function() {
+        var id = $(this).data('menu');
+        // $(this).addClass('hidden');
+        $('#' + id).toggleClass('hidden');
+      });
+
+      $('.mitem').click(function() {
+        var clickedItem = $(this);
+        var menu = $(this).parent().parent();
+        menu.toggleClass('hidden');
+        var id = $(menu).data('trigger');
+        var inputId = $(menu).data('input');
+        var valueItem = $('#' + id);
+        var value = clickedItem.text();
+        
+        if (inputId == 'furnish') {
+          var furnishPrefix = $('#furnishPrefix');
+          var prefix = ''
+          switch (value) {
+            case 'unfurnished': prefix = 'an'; break;
+            case 'furnished': prefix = 'a';
+          };
+          furnishPrefix.text(prefix);
+        }
+
+        var inputField = $('#' + inputId);
+        if (inputField) {
+          inputField.val(value);
+        }
+
+
+        valueItem.text(value);
+        valueItem.removeClass('hidden');
+      });
+
+      $('.input_trigger').click(function() {
+        var id = $(this).data('input');
+        $(this).addClass('hidden');
+        var target = $('#' + id);        
+        target.toggleClass('hidden');
+        target.focus();
+      });
+
+      $('input.search').blur(function() {
+        var clickedItem = $(this);
+        clickedItem.toggleClass('hidden');
+        var id = clickedItem.data('trigger');
+        var valueItem = $('#' + id);
+        var value = clickedItem.val();
+        var inputId = clickedItem.data('input');
+        var inputField = $('#' + inputId);
+        if (inputField) {
+          inputField.val(value);
+        }
+
+        console.log('valueItem', valueItem);
+        console.log('value', value);
+        valueItem.text(value);
+        // valueItem.val(value);
+        valueItem.removeClass('hidden');
+      });
+      
+      $('.period_trigger').click(function() {
+        var id = $(this).data('input');
+        $(this).addClass('hidden');
+        var target = $('#' + id);        
+        target.toggleClass('hidden');
+        // target.focus();
+      });
+
+      $('#period_from_input, #period_to_input').daterangepicker({monthFormat: 'dd/mm/yy', 
+        earliestDate: Date.parse('-1month'), //earliest date allowed 
+        latestDate: Date.parse('+1year'), //latest date allowed 
+        onChange: function() {
+        $('#period_from_input, #period_to_input').addClass('hidden');
+        var fromVal = $('#period_from_input').val();
+        var toVal = $('#period_to_input').val();
+
+        var fromTxt = $('#period_from');
+        fromTxt.text(fromVal);
+        fromTxt.removeClass('hidden');
+
+        var toTxt = $('#period_to');
+        toTxt.text(toVal);
+        toTxt.removeClass('hidden');
+
+      }});
+
+      /*
+      $('input#period_from_input').datepicker({monthFormat: 'dd/mm/yy', onSelect: function(dateText, instance) {
+        var clickedItem = $('input#period_from_input');
+        clickedItem.toggleClass('hidden');
+
+        var value_item = $('#period_from');
+        value_item.text(dateText);
+        value_item.removeClass('hidden');
+
+      }});
+
+      $('input#period_to_input').datepicker({monthFormat: 'dd/mm/yy', onSelect: function(dateText, instance) {
+        var clickedItem = $('input#period_to_input');
+        clickedItem.toggleClass('hidden');
+
+        var value_item = $('#period_to');
+        value_item.text(dateText);
+        value_item.removeClass('hidden');
+      }});
+*/
+
+
+
+    });  
+
+  </script>
+</html>
