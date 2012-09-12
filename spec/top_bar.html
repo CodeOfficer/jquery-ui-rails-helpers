@@ -25,7 +25,7 @@
       #searchbar {
         padding: 6 6 10 10px;
         color: silver;
-        font-size: 16px;        
+        font-size: 12px;        
 
         /* IE10 Consumer Preview */ 
         background-image: -ms-linear-gradient(bottom, #575757 0%, #00131C 100%);
@@ -67,14 +67,27 @@
         margin-right: 6px;
       }
 
-      .menu-wrapper {
-        display: -moz-box;
-        display: -webkit-box;
-        display:box;
-        -moz-box-orient: horizontal;
-        -webkit-box-orient: horizontal;
-        box-orient: horizontal;
-        box-align: center;
+      #menu-wrap {
+        max-width: 600px;
+        margin-right: 20px; 
+      }
+
+      #result-wrap {
+        min-width: 150px;
+        margin-right: 20px;
+      }
+
+      #right-wrap {
+        min-width: 130px;
+        margin-right: 10px;
+      }
+
+      .area {
+        display: inline-block;
+      }
+
+      .inline {
+        display: inline-block;
       }
 
       form {
@@ -87,6 +100,10 @@
 <link href="../vendor/assets/stylesheets/ui.daterange_picker.css" rel="stylesheet" type="text/css"/>
 
 <link href="../vendor/assets/stylesheets/ui.sweet_selectmenu.css" rel="stylesheet" type="text/css"/>
+
+<link href="../vendor/assets/stylesheets/ui.sweet_input.css" rel="stylesheet" type="text/css"/>
+
+<link href="flex.css" rel="stylesheet" type="text/css"/>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
@@ -103,101 +120,117 @@
 
 
 <div id="searchbar">
-  <form id="search">      
-    <div class="menu-wrapper">
-      <span>within</span>
-      <div id="radius_area" class="area"> 
-        <label for="radius" class="ui-sweet">5</label>
-        <select name="radius" id="radius" class="ui-sweet">
-          <option value="1"/>
-          <option value="5"/>
-          <option value="10"/>
-          <option value="20"/>
-          <option value="50"/>
-          <option value="100"/>
-          <option value="any">any distance</option>
-        </select>
-      </div>
-      <span><span id="distance_unit">kms</span> of</span>
-      <div id="location_area" class="area">
-        <label for="location" class="ui-sweet">copenhagen</a>
-        <input id="location" name="location" type="search" class="search ui-sweet" value="copenhagen" results="5" autosave="search"> 
-      </div>
-      <span> find <span id="furnishPrefix"></span></span>
+  <form id="search">        
+    <div id="left-wrap" class="hbox">
+      <div id="menu-wrap" class="boxFlex">
+        <span>within</span>
+        <div id="radius_area" class="area"> 
+          <label for="radius" class="ui-sweet">5</label>
+          <select name="radius" id="radius" class="ui-sweet">
+            <option value="1"/>
+            <option value="5"/>
+            <option value="10"/>
+            <option value="20"/>
+            <option value="50"/>
+            <option value="100"/>
+            <option value="any">any distance</option>
+          </select>
+        </div>
+        <span><span id="distance_unit">kms</span> of</span>
+        <div id="location_area" class="area">
+          <label for="location" class="ui-sweet">copenhagen</a>
+          <input id="location" name="location" type="search" class="search ui-sweet" value="copenhagen" results="5" autosave="search"> 
+        </div>
+        <span> find <span id="furnishPrefix"></span></span>
 
-      <div id="furnish_area">
-        <label for="furnish">any</label>
-        <select name="furnish" id="furnish" class="ui-sweet">
-          <option value="none">unfurnished</option>
-          <option value="full">furnished</option>
-          <option value="any"/>
-        </select>
-      </div>
+        <div id="furnish_area" class="area">
+          <label for="furnish">any</label>
+          <select name="furnish" id="furnish" class="ui-sweet">
+            <option value="none">unfurnished</option>
+            <option value="full">furnished</option>
+            <option value="any"/>
+          </select>
+        </div>
 
-      <div id="type_area">
-        <label for="type">apartment</label>
-        <select name="type" id="type" class="ui-sweet">
-          <option value="apartment"/>
-          <option value="house"/>
-          <option value="villa"/>
-        </select>
+        <div id="type_area" class="area">
+          <label for="type">apartment</label>
+          <select name="type" id="type" class="ui-sweet">
+            <option value="apartment"/>
+            <option value="house"/>
+            <option value="villa"/>
+          </select>
+        </div>
+        <span>of</span>      
+        <div id="size_area" class="area">
+          <label for="size">40-60</label>
+          <select name="size" id="size" class="ui-sweet">
+            <option value="5-20"/>
+            <option value="40-60"/>
+            <option value="60-90"/>
+            <option value="90-130"/>
+            <option value="130-200"/>
+            <option value="200-300"/>
+            <option value="300+"/>
+          </select>       
+        </div>   
+        <span><span id="size_unit">m2</span> with</span>
+        <div id="rooms_area" class="area">
+          <label for="rooms">2-3</label>
+          <select name="rooms" id="rooms" class="ui-sweet">
+            <option value="1-2"/>
+            <option value="2-3"/>
+            <option value="3-4"/>
+            <option value="4-5"/>
+            <option value="5+"/>
+            <option value="any">any # of</option>
+          </select>       
+        </div> 
+        <span><span id="rooms_unit">rooms</span> for</span>       
+        <div id="cost_area" class="area">
+          <label for="cost">2000-4000</label>
+          <select name="cost" id="cost" class="ui-sweet">
+            <option value="1000-2000"/>
+            <option value="2000-4000"/>
+            <option value="4000-6000"/>
+            <option value="6000-9000"/>
+            <option value="9000-12000"/>
+            <option value="12000-16000"/>
+            <option value="16000-20000"/>
+            <option value="20000-30000"/>
+            <option value="30000+"/>
+            <option value="any">any amount</option>
+          </select>
+        </div>
+        <span><span id="currency">kr.</span> &nbsp;from </span>
+        <div id="period_area" class="area">
+          <label for="period_from" class="ui-sweet">01/10/2012</label>
+          <input id="period_from" type="text" value="1/10/12" class="date ui-sweet"/>
+          <span>to</span>
+          <label id="period_to" for="period_to" class="ui-sweet">01/04/2013.</label>
+          <input id="period_to_input" type="text" value="1/4/13" class="date ui-sweet"/>
+        </div>
+      </div><!-- menu-wrap -->
+      <div class="spacer">&nbsp;</div>
+      <div id="result-wrap" class="boxFlex2">
+        <div id="results">        
+          <span id="found_number" class="badge">2100</span>
+          results found
+        </div>
+        <div id="agent">
+          <button>Create agent</button>
+        </div>
       </div>
-      <span>of</span>      
-      <div id="size_area">
-        <label for="size">40-60</label>
-        <select name="size" id="size" class="ui-sweet">
-          <option value="5-20"/>
-          <option value="40-60"/>
-          <option value="60-90"/>
-          <option value="90-130"/>
-          <option value="130-200"/>
-          <option value="200-300"/>
-          <option value="300+"/>
-        </select>       
-      </div>   
-      <span><span id="size_unit">m2</span> with</span>
-      <div id="rooms_area">
-        <label for="rooms">2-3</label>
-        <select name="rooms" id="rooms" class="ui-sweet">
-          <option value="1-2"/>
-          <option value="2-3"/>
-          <option value="3-4"/>
-          <option value="4-5"/>
-          <option value="5+"/>
-          <option value="any">any # of</option>
-        </select>       
-      </div> 
-      <span><span id="rooms_unit">rooms</span> for</span>       
-      <div id="cost_area" class="area">
-        <label for="cost">2000-4000</label>
-        <select name="cost" id="cost" class="ui-sweet">
-          <option value="1000-2000"/>
-          <option value="2000-4000"/>
-          <option value="4000-6000"/>
-          <option value="6000-9000"/>
-          <option value="9000-12000"/>
-          <option value="12000-16000"/>
-          <option value="16000-20000"/>
-          <option value="20000-30000"/>
-          <option value="30000+"/>
-          <option value="any">any amount</option>
-        </select>
-      </div>
-      <span><span id="currency">kr.</span> &nbsp;from </span>
-      <div id="period_area" class="area">
-        <label for="period_from" class="ui-sweet">01/10/2012</label>
-        <input id="period_from" type="date" value="1/10/12" class="date ui-sweet"/>
-        <span>to</span>
-        <label id="period_to" for="period_to" class="ui-sweet">01/04/2013.</label>
-        <input id="period_to_input" type="text" value="1/4/13" class="date ui-sweet"/>
-      </div>
+      <div class="spacer">&nbsp;</div>
+      <div id="right-wrap" class="right vbox">
+        <a class="btn btn-large btn-primary" href="#">
+          <i class="icon-home"></i> Post ad</a>
+
+      <div id="sort_area" class="area">  
+        <span>sorted by</span>
+        <a id="sorting" href="#" data-menu="sort_menu" class="menu_trigger trigger">price</a>        
+      </div>      
     </div>
-    <div id="results">
-      <span id="found_number" class="badge">2100</span>
-      results found
-    </div>
-  </div>
-</form>
+  </form>        
 </div>
   </body>
    <script type="text/javascript"> 
