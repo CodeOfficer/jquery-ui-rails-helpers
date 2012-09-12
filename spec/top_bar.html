@@ -3,10 +3,10 @@
     <style type="text/css">
 
       .search {
-        font-size: 16px;
+        font-size: 14px;
         width: 16em;
 
-        margin-top: -1px;
+        /*margin-top: 2px;*/
 
         margin-left: 6px;
         margin-right: 6px;        
@@ -111,10 +111,11 @@
   <script src="js/ui.widget.jquery.js"></script>
   <script src="js/ui.menu.jquery.js"></script>
   <script src="js/jquery.ui.1.9.0-rc1.min.js"></script>
-  <script src="js/ui.daterangepicker.min.js"></script>
+  <script src="../vendor/assets/javascripts/ui.daterange_picker.jquery.js"></script>
 
   <script src="../vendor/assets/javascripts/ui.sweet_selectmenu.js"></script>
   <script src="../vendor/assets/javascripts/ui.sweet_input.js"></script>
+  <script src="../vendor/assets/javascripts/ui.sweet_daterange.js"></script>
   </head>
   <body>
 
@@ -138,8 +139,8 @@
         </div>
         <span><span id="distance_unit">kms</span> of</span>
         <div id="location_area" class="area">
-          <label for="location" class="ui-sweet">copenhagen</a>
-          <input id="location" name="location" type="search" class="search ui-sweet" value="copenhagen" results="5" autosave="search"> 
+          <label for="location" class="ui-sweet">copenhagen</label>
+          <input id="location" name="location" type="search" class="search ui-sweet hidden" value="copenhagen" results="5" autosave="search"> 
         </div>
         <span> find <span id="furnishPrefix"></span></span>
 
@@ -171,6 +172,7 @@
             <option value="130-200"/>
             <option value="200-300"/>
             <option value="300+"/>
+            <option value="any">any size</option>
           </select>       
         </div>   
         <span><span id="size_unit">m2</span> with</span>
@@ -204,10 +206,10 @@
         <span><span id="currency">kr.</span> &nbsp;from </span>
         <div id="period_area" class="area">
           <label for="period_from" class="ui-sweet">01/10/2012</label>
-          <input id="period_from" type="text" value="1/10/12" class="date ui-sweet"/>
+          <input id="period_from" type="text" value="1/10/12" class="daterange ui-sweet hidden"/>
           <span>to</span>
-          <label id="period_to" for="period_to" class="ui-sweet">01/04/2013.</label>
-          <input id="period_to_input" type="text" value="1/4/13" class="date ui-sweet"/>
+          <label for="period_to" class="ui-sweet">01/04/2013.</label>
+          <input id="period_to" type="text" value="1/4/13" class="daterange ui-sweet hidden"/>
         </div>
       </div><!-- menu-wrap -->
       <div class="spacer">&nbsp;</div>
@@ -238,16 +240,17 @@
       var searchUpdates = {
         furnish: function(value) {
           var furnishPrefix = $('#furnishPrefix');
-          var prefix = ''
+          var prefix = '';
+          console.log('furnishPrefix', furnishPrefix, value);
           switch (value) {
-            case 'unfurnished': prefix = 'an'; break;
-            case 'furnished': prefix = 'a';
+            case 'none': prefix = 'an'; break;
+            case 'fully': prefix = 'a';
           };
           furnishPrefix.text(prefix);
         },
         cost: function(value) {
           var currency = $('#currency');
-          if (value == 'any amount') {
+          if (value == 'any') {
             currency.text('');
           } else {
             currency.text('kr.');
@@ -255,7 +258,7 @@
         },
         size: function(value) {
           var currency = $('#size_unit');
-          if (value == 'any size') {
+          if (value == 'any') {
             currency.text('');
           } else {
             currency.text('m2');
@@ -263,7 +266,7 @@
         },
         radius: function(value) {        
           var currency = $('#distance_unit');
-          if (value == 'any distance') {
+          if (value == 'any') {
             currency.text('');
           } else {
             currency.text('kms');
@@ -271,27 +274,15 @@
         }
       };
 
-      $('.ui-sweet').sweetMenu();
-      sweetMenu.activate(searchUpdates);
-
-      $('#period_from_input, #period_to_input').daterangepicker({monthFormat: 'dd/mm/yy', 
+      $('select.ui-sweet').sweetMenu();
+      $('input.ui-sweet:not(.daterange)').sweetInput();
+      $('input.ui-sweet.daterange').sweetDateRange({
+        monthFormat: 'dd/mm/yy', 
         earliestDate: Date.parse('-1month'), //earliest date allowed 
-        latestDate: Date.parse('+1year'), //latest date allowed 
-        onChange: function() {
+        latestDate: Date.parse('+1year')
+      });
 
-        $('#period_from_input, #period_to_input').addClass('hidden');
-
-        var fromVal = $('#period_from_input').val();
-        var fromTxt = $('#period_from');
-        fromTxt.text(fromVal);
-        fromTxt.removeClass('hidden');
-
-        var toVal = $('#period_to_input').val();
-        var toTxt = $('#period_to');
-        toTxt.text(toVal);
-        toTxt.removeClass('hidden');
-
-      }});
+      sweetMenu.activate(searchUpdates);
     });  
   </script>
 </html>

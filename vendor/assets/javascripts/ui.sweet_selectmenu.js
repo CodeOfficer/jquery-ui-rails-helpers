@@ -61,7 +61,8 @@ var sweetMenu = {
       // label for selector      
       var label = $('label[for=' + selectorId + ']')
 
-      var value = clickedItem.data('value');    
+      var value = clickedItem.data('value');
+      var text  = clickedItem.text();
 
       var selector = $('#' + selectorId);
       if (selector) {
@@ -69,11 +70,15 @@ var sweetMenu = {
       }
 
       var updateFun = updaters[selectorId];
+
+      console.log('updaters', updaters, selectorId, updateFun);
+
       if (typeof updateFun == 'function') {
+        console.log('call', selectorId);
         updateFun(value);
       }
 
-      label.text(value);
+      label.text(text);
     });
   } 
 }

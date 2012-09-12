@@ -27,6 +27,8 @@ jQuery.fn.daterangepicker = function(settings){
             // {text: 'Last 7 days', dateStart: 'today-7days', dateEnd: 'today' },
             {text: 'Month to date', dateStart: function(){ return Date.parse('today').moveToFirstDayOfMonth();  }, dateEnd: 'today' },
             {text: 'Year to date', dateStart: function(){ var x= Date.parse('today'); x.setMonth(0); x.setDate(1); return x; }, dateEnd: 'today' },
+            {text: 'Next 14 Days', dateStart: 'Today', dateEnd: 'Today+14' },
+            {text: 'Next 30 Days', dateStart: 'Today', dateEnd: 'Today+30' },
             //extras:
             {text: 'The previous Month', 
                 dateStart: function(){ 
@@ -35,12 +37,10 @@ jQuery.fn.daterangepicker = function(settings){
                 dateEnd: function(){ 
                     return Date.parse('1 month ago').moveToLastDayOfMonth();  
                 } 
-            },
+            }
             //{text: 'Tomorrow', dateStart: 'Tomorrow', dateEnd: 'Tomorrow' },
             //{text: 'Ad Campaign', dateStart: '03/07/08', dateEnd: 'Today' },
             //{text: 'Last 30 Days', dateStart: 'Today-30', dateEnd: 'Today' },
-            {text: 'Next 14 Days', dateStart: 'Today', dateEnd: 'Today+14' },
-            {text: 'Next 30 Days', dateStart: 'Today', dateEnd: 'Today+30' }
             //{text: 'Our Ad Campaign', dateStart: '03/07/08', dateEnd: '07/08/08' }
         ], 
         //presetRanges: array of objects for each menu preset. 

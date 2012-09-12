@@ -1,31 +1,37 @@
-  $('.input_trigger').click(function() {
-    var id = $(this).data('input');
-    $(this).addClass('hidden');
-    var target = $('#' + id);        
-    target.toggleClass('hidden');
-    target.focus();
-  });
+(function( $ ){
+  $.fn.sweetInput = function( options ) {
 
-  $('input.search').blur(function() {
-    var clickedItem = $(this);
-    clickedItem.toggleClass('hidden');
-    var id = clickedItem.data('trigger');
-    var valueItem = $('#' + id);
-    var value = clickedItem.val();
-    var inputId = clickedItem.data('input');
-    var inputField = $('#' + inputId);
-    if (inputField) {
-      inputField.val(value);
-    }
+    // Create some defaults, extending them with any options that were provided
+    var settings = $.extend( {
+    }, options);
 
-    valueItem.text(value);
-    valueItem.removeClass('hidden');
-  });
-  
-  $('.period_trigger').click(function() {
-    var id = $(this).data('input');
-    $(this).addClass('hidden');
-    var target = $('#' + id);        
-    target.toggleClass('hidden');
-    // target.focus();
-  });
+    return this.each(function() {        
+      var $this = $(this);
+      var id = $this.attr('id');
+      $this.addClass('hidden');
+
+      var label = $('label[for=' + id + ']');
+      label.addClass('ui-sweet'); 
+
+      label.click(function() {
+        var inputId = $(this).attr('for');
+        $(this).addClass('hidden');
+        var input = $('#' + inputId);
+        input.removeClass('hidden');
+        input.focus();
+      });
+
+      $this.blur(function() {
+        var $this = $(this);
+        $this.toggleClass('hidden');
+
+        var id = $this.attr('id');
+        var label = $('label[for=' + id + ']');
+        
+        var value = $this.val();
+        label.text(value);
+        label.toggleClass('hidden');
+      });      
+    })
+  }
+})( jQuery );  
