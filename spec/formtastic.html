@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>Dummy</title>
+      <link href="topbar/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+      <link href="../vendor/assets/stylesheets/ui.daterange_picker.css" rel="stylesheet" type="text/css"/>
+      <link href="../vendor/assets/stylesheets/ui.sweet_selectmenu.css" rel="stylesheet" type="text/css"/>
+      <link href="../vendor/assets/stylesheets/ui.sweet_input.css" rel="stylesheet" type="text/css"/>
+
+      <link href="flex.css" rel="stylesheet" type="text/css"/>
+      <link href="topbar/style.css" rel="stylesheet" type="text/css"/>
+
+      <script src="topbar/helpers-da.js"></script>
+      <script src="topbar/main.js"></script>
+
+      <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+      <script type="text/javascript" src="js/jquery.form.js"></script>
+      <script src="js/ui.core.jquery.js"></script>
+      <script src="js/ui.widget.jquery.js"></script>
+      <script src="js/ui.menu.jquery.js"></script>
+      <script src="js/jquery.ui.1.9.0-rc1.min.js"></script>
+
+      <script src="../vendor/assets/javascripts/ui.daterange_picker.jquery.js"></script>
+      <script src="../vendor/assets/javascripts/ui.sweet_selectmenu.js"></script>
+      <script src="../vendor/assets/javascripts/ui.sweet_input.js"></script>
+      <script src="../vendor/assets/javascripts/ui.sweet_daterange.js"></script>
+      <script type="text/javascript" src="../vendor/assets/javascripts/jquery.selectboxes.js"></script>  
+      <meta content="authenticity_token" name="csrf-param">
+  <meta content="8ZEcVZeSG0BKpZL2u5n3RA40wX/G73pSdxZSNNGxz38=" name="csrf-token">
+  <script>function notifyScript() {     var evt = document.createEvent("Event");     evt.initEvent("notify", false, false);     if (document.getElementById("addthis-extension-script") == null) {        var d=document.createElement("div"); d.setAttribute("style", "display:none"); d.setAttribute("id", "addthis-extension-script");         if (window._ate)             d.textContent=_ate.pub();         else if(window.addthis_config && addthis_config.pubid)    d.textContent= addthis_config.pubid;        else if(window.addthis_config && addthis_config.username)    d.textContent= addthis_config.username;        else if(window.addthis_pub)    d.textContent= addthis_pub;        else             d.textContent="";         document.body.appendChild(d);     }    document.documentElement.dispatchEvent(evt); }notifyScript()</script>
+  </head>
+  <body>
+    <div id="searchbar">
+      <form accept-charset="UTF-8" action="/property/searches" class="formtastic search" id="new_search" method="post" novalidate="novalidate">
+        <div style="margin:0;padding:0;display:inline">
+          <input name="utf8" type="hidden" value="✓">
+          <input name="authenticity_token" type="hidden" value="8ZEcVZeSG0BKpZL2u5n3RA40wX/G73pSdxZSNNGxz38=">
+        </div>
+        <div class="hbox" id="left-wrap">
+          <div class="boxFlex" id="menu-wrap">
+            Find
+            <div id="typePrefix"></div>
+            <div class="area" id="type_area">
+              <li class="select input optional" id="search_type_input">
+                <label class="label ui-sweet" for="search_type">---</label>
+                <select class="ui-sweet" id="search_type" name="search[type]">
+                  <option value="property">property</option>
+                  <option value="room">room</option>
+                  <option value="apartment">apartment</option>
+                  <option value="house">house</option>
+                  <option value="villa">villa</option>
+                </select>  
+              </li>
+            </div>
+            of
+          </div><!-- menuwrap -->
+          <div class="spacer">
+            &amp;nbsp;
+          </div>
+          <div class="boxFlex2" id="result-wrap">
+            <div id="results">
+              <div class="badge" id="found_number">
+                2100
+              </div>
+              resultater fundet
+            </div>
+            <div id="agent">
+              <button>
+                Create agent
+              </button>
+            </div>
+          </div>
+          <div class="spacer">
+            &amp;nbsp;
+          </div>
+          <div class="right vbox" id="right-wrap">
+            <a class="btn btn-large btn-primary" href="#">
+              <i class="icon-home"></i>
+              Post ad
+            </a>
+          </div>
+          <div class="area" id="sort_area">
+            sorted by
+            <a class="menu_trigger trigger" data-menu="sort_menu" href="#" id="sorting">
+              cost
+            </a>
+          </div>
+        </div><!-- left-wrap -->
+      </form>
+    </div><!-- searchbar -->
+    <div style="display:none" id="addthis-extension-script"></div>
+  </body>
+</html>

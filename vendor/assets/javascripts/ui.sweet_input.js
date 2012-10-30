@@ -30,7 +30,7 @@
         
         var value = $this.val();
         label.text(value);
-        label.toggleClass('hidden');
+        label.toggleClass('hidden');        
       });      
     })
   }

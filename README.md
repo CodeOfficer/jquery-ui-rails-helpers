@@ -3,11 +3,6 @@ What Is It?
 
 It's a Ruby on Rails plugin that provides helpers that take some of the boilerplate out of generating HTML for use with jQuery UI. http://jqueryui.com/
 
-Now also includes *jQuery UI 1.9.0-rc1* as an asset
-
-http://blog.jqueryui.com/2012/06/jquery-ui-1-9-beta/
-http://blog.jqueryui.com/2012/08/jquery-ui-1-9-rc/
-
 Selectmenu
 ----------
 
