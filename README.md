@@ -16,7 +16,7 @@ Assets:
 * ui.selectmenu.css
 * ui.selectmenu.jquery.js
 
-Also see: https://github.com/fnagel/jquery-ui for more, including updates (perhps even look at the forks...)
+Also see: https://github.com/fnagel/jquery-ui for more, including updates (perhaps even look at the forks...)
 
 TabsHelper
 ----------
@@ -163,8 +163,7 @@ Use it something like this:
     = ui_button :label => 'Save'
 
     = ui_button do
-      "Save me"
-    end
+      Save me
 
 It supports the `:ui` options hash for advanced config.
 
@@ -265,10 +264,8 @@ Examples:
 Menu
 ------------
 
-See spec/examples
-Includes iPod "flyout" style menu.
+See `spec/examples`. Includes iPod "flyout" style menu.
 
-    // MENUS
     $('#flat').menu({
       content: $('#flat').next().html(), // grab content from this page
       showSpeed: 400
@@ -289,28 +286,24 @@ Includes iPod "flyout" style menu.
       $('#flyout').menu({ content: data, flyOut: true });
     });
 
-    # a simple flat menu as simple as
+a simple flat menu as simple as
 
-    ui_menu do
-      [ui_menu_item(:label => 'Hello'), ui_menu_item(:label => 'Goodbye')].safe_join
-    end
+    = ui_menu do
+      - [ui_menu_item(:label => 'Hello'), ui_menu_item(:label => 'Goodbye')].safe_join
 
-    # or with a little more spice and precision
+or with a little more spice and precision:
 
-    ui_menu do
+    = iu_menu do
       [
         ui_menu_item(:link => ['Google', 'www.google.com', {:id => 'google'}]),
         ui_menu_item(:link => ['Rails', 'www.rails.com', {:id => 'rails'}]),
       ].safe_join
-    end
 
-    # or use the ui_branch and ui_leaf from tree to create a nested menu!
+or use the `ui_branch and ui_leaf` from tree to create a nested menu:
 
-    ui_menu :nested => true do
-      ui_branch :link => ['Google', 'www.google.com', {:id => 'google'}] do
-        ui_leaf :label => 'Goodbye'
-      end
-    end
+    = ui_menu :nested => true do
+      = ui_branch :link => ['Google', 'www.google.com', {:id => 'google'}] do
+        - ui_leaf :label => 'Goodbye'
 
 Checkbox
 ------------
