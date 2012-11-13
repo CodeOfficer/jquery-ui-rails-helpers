@@ -23,8 +23,8 @@ Helps generate HTML for use with the jQuery UI Tabs plugin. (Examples are in HAM
     = ui_tabs do |widget|
     	- widget.tab('tab_one', 'Tab 1') do
         Tab contents
-    	- widget.tab('tab_two', 'Tab 2') do
-    	  Tab contents
+      - widget.tab('tab_two', 'Tab 2') do
+        Tab contents
 
 The above will generate this HTML in your view:
 
@@ -40,21 +40,20 @@ The above will generate this HTML in your view:
         Tab contents
       </div>
     </div>
-  
+
 Tabs will be rendered in the order you create them.
 
 You can pass HTML options to either the parent DIV or any individual tab's
 DIV as you like ...
 
     = ui_tabs :html => { :id => 'special_tabs', :class => 'zippy' } do |tab|
-    	- widget.tab 'tab_one', 'Tab 1', :html => { :style => 'background: #FFF' } do
+      - widget.tab 'tab_one', 'Tab 1', :html => { :style => 'background: #FFF' } do
         Tab contents
 
 The default DOM ID for the parent div is ... id="tabs" ... unless you pass in an HTML
 option with a different value.
 
 Options for jQuery UI widgets will be passed in via a :ui parameter, but this isn't supported yet.
-
 
 AccordionHelper
 ---------------
@@ -64,10 +63,10 @@ Helps generate HTML for use with the jQuery UI Accordion widget. (Examples are i
 Usage is identical to the Tabs helper.
 
     = ui_accordion do |widget|
-    	- widget.pane('accordion_one', 'Accordion 1') do
+      - widget.pane('accordion_one', 'Accordion 1') do
         Accordion contents
-    	- widget.pane('accordion_two', 'Accordion 2') do
-    	  Accordion contents
+      - widget.pane('accordion_two', 'Accordion 2') do
+        Accordion contents
 
 The above will generate this HTML in your view:
 
@@ -128,7 +127,6 @@ The above will generate this HTML in your view:
       <input type="text" name="post" id="post" />
     </div>
 
-
 Javascript Generation
 ---------------------
 
@@ -142,13 +140,12 @@ You'll output that, at the bottom of the page beneath where you load jQuery, usi
 
     = yield :jquery_ui_helpers
 
-
 Progressbar
 -------------
 
 Use it something like this:
 
-  = ui_progressbar :html => {:id => 'uploader', :class => 'progress'}
+    = ui_progressbar :html => {:id => 'uploader', :class => 'progress'}
 
 It also supports the :ui options hash for advanced config.
 
@@ -157,13 +154,13 @@ Button
 
 Use it something like this:
 
-  = ui_button :ui => {:icons => {primary:'ui-icon-gear'}}
+    = ui_button :ui => {:icons => {primary:'ui-icon-gear'}}
 
-  = ui_button :label => 'Save'
+    = ui_button :label => 'Save'
 
-  = ui_button do
-    "Save me"
-  end
+    = ui_button do
+      "Save me"
+    end
 
 It supports the :ui options hash for advanced config.
 
@@ -172,22 +169,20 @@ Button Set
 
 Use it something like this:
 
-  = ui_buttonset :labels => ['B', 'I']
+    = ui_buttonset :labels => ['B', 'I']
 
-  = ui_buttonset :labels => ['B', 'I'], :type => 'radio'
+    = ui_buttonset :labels => ['B', 'I'], :type => 'radio'
 
-  = ui_buttonset :labels => ['B', 'I'], :type => 'checkbox', :selected => ['B']
+    = ui_buttonset :labels => ['B', 'I'], :type => 'checkbox', :selected => ['B']
 
 It also supports the :ui options hash for advanced config. By default the type is 'radio'.
-
 
 Slider
 -------------
 
 Use it something like this:
 
-  = ui_slider :html => {:id => 'rooms_slider', :class => 'slider'}, :ui => {:animate => true}
-
+    = ui_slider :html => {:id => 'rooms_slider', :class => 'slider'}, :ui => {:animate => true}
 
 SelectSlider
 -------------
@@ -222,24 +217,24 @@ DateRangePicker
 
 Here is an example of an JSON options struture that can be passed in (see http://filamentgroup.com/examples/daterangepicker_v2/index2.php)
 
-        {
-          presetRanges: [
-            {text: 'Ad Campaign', dateStart: 'Today', dateEnd: '03/07/09' },
-            {text: 'Spring Vacation', dateStart: '03/04/09', dateEnd: '03/08/09' },
-            {text: 'Office Closed', dateStart: '04/04/09', dateEnd: '04/08/09' }
-          ], 
-          posX: null,
-          posY: null,
-          arrows: true, 
-          dateFormat: 'M d, yy',
-          rangeSplitter: 'to',
-          datepickerOptions: {
-            changeMonth: true,
-            changeYear: true
+    {
+      presetRanges: [
+        {text: 'Ad Campaign', dateStart: 'Today', dateEnd: '03/07/09' },
+        {text: 'Spring Vacation', dateStart: '03/04/09', dateEnd: '03/08/09' },
+        {text: 'Office Closed', dateStart: '04/04/09', dateEnd: '04/08/09' }
+      ],
+      posX: null,
+      posY: null,
+      arrows: true,
+      dateFormat: 'M d, yy',
+      rangeSplitter: 'to',
+      datepickerOptions: {
+        changeMonth: true,
+        changeYear: true
           },
-          onOpen:function(){ if(inframe){ $(window.parent.document).find('iframe:eq(1)').width(700).height('35em');} }, 
-            onClose: function(){ if(inframe){ $(window.parent.document).find('iframe:eq(1)').width('100%').height('5em');} }
-        } 
+          onOpen:function(){ if(inframe){ $(window.parent.document).find('iframe:eq(1)').width(700).height('35em');} },
+        onClose: function(){ if(inframe){ $(window.parent.document).find('iframe:eq(1)').width('100%').height('5em');} }
+    }
 
 Tree
 -----------
@@ -250,7 +245,7 @@ Examples:
 
     ui_branch :link => ['Google', 'www.google.com', {:id => 'google'}] do
       [
-        ui_leaf(:label => 'Hello'), 
+        ui_leaf(:label => 'Hello'),
         ui_leaf(:label => 'Bye')
       ].safe_join
     end
@@ -267,22 +262,22 @@ Menu
 See spec/examples
 Includes iPod "flyout" style menu.
 
-      // MENUS      
-    $('#flat').menu({ 
+    // MENUS
+    $('#flat').menu({
       content: $('#flat').next().html(), // grab content from this page
-      showSpeed: 400 
+      showSpeed: 400
     });
-    
+
     $('#hierarchy').menu({
       content: $('#hierarchy').next().html(),
       crumbDefaultText: ' '
     });
-    
+
     $('#hierarchybreadcrumb').menu({
       content: $('#hierarchybreadcrumb').next().html(),
       backLink: false
     });
-    
+
     // or from an external source
     $.get('menuContent.html', function(data){ // grab content from another page
       $('#flyout').menu({ content: data, flyOut: true });
@@ -292,14 +287,14 @@ Includes iPod "flyout" style menu.
 
     ui_menu do
       [ui_menu_item(:label => 'Hello'), ui_menu_item(:label => 'Goodbye')].safe_join
-    end    
+    end
 
     # or with a little more spice and precision
 
     ui_menu do
       [
-        ui_menu_item(:link => ['Google', 'www.google.com', {:id => 'google'}]), 
-        ui_menu_item(:link => ['Rails', 'www.rails.com', {:id => 'rails'}]), 
+        ui_menu_item(:link => ['Google', 'www.google.com', {:id => 'google'}]),
+        ui_menu_item(:link => ['Rails', 'www.rails.com', {:id => 'rails'}]),
       ].safe_join
     end
 
@@ -339,48 +334,43 @@ Themeswitcher
 You might also find the themeswitcher for Rails useful
 
 https://github.com/kristianmandrup/ui_themeswitcher
-       
+
 Rails asset pipeline
 -------------
 
 CSS assets:
 
     fg.menu.jquery
-    
+
     ui.checkbox
     ui.checkbox_radio
     ui.checkbox_radio_msoffice
-    
+
     ui.daterange_picker
-    
+
     ui.fileinput
 
     ui.select_slider
-    
+
     ui.tree
 
 Javascript assets:
 
     enhance
     fg.menu.jquery
-    
+
     ui.button.jquery
-    
+
     ui.checkbox.jquery
     ui.checkbox_radio.jquery
-    
+
     ui.daterange_picker.jquery
     util.date
-    
+
     ui.fileinput.jquery
-    
+
     ui.select_slider.jquery
-    
+
     ui.tree.jquery
 
     ui.widget.jquery
-    
-
-
-
-
