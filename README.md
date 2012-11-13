@@ -20,7 +20,7 @@ TabsHelper
 
 Helps generate HTML for use with the jQuery UI Tabs plugin. (Examples are in HAML. http://haml-lang.com/)
 
-    - ui_tabs do |widget|
+    = ui_tabs do |widget|
     	- widget.tab('tab_one', 'Tab 1') do
         Tab contents
     	- widget.tab('tab_two', 'Tab 2') do
@@ -46,7 +46,7 @@ Tabs will be rendered in the order you create them.
 You can pass HTML options to either the parent DIV or any individual tab's
 DIV as you like ...
 
-    - ui_tabs :html => { :id => 'special_tabs', :class => 'zippy' } do |tab|
+    = ui_tabs :html => { :id => 'special_tabs', :class => 'zippy' } do |tab|
     	- widget.tab 'tab_one', 'Tab 1', :html => { :style => 'background: #FFF' } do
         Tab contents
 
@@ -63,7 +63,7 @@ Helps generate HTML for use with the jQuery UI Accordion widget. (Examples are i
 
 Usage is identical to the Tabs helper.
 
-    - ui_accordion do |widget|
+    = ui_accordion do |widget|
     	- widget.pane('accordion_one', 'Accordion 1') do
         Accordion contents
     	- widget.pane('accordion_two', 'Accordion 2') do
@@ -88,7 +88,7 @@ DialogHelper
 
 Helps generate HTML for use with the jQuery UI Dialog widget. (Examples are in HAML. http://haml-lang.com/)
 
-    - ui_dialog :html => { :id => 'my_dialog', :title => 'Dialog Title' } do |widget|
+    = ui_dialog :html => { :id => 'my_dialog', :title => 'Dialog Title' } do |widget|
       Dialog contents
 
 The above will generate this HTML in your view:
@@ -109,7 +109,7 @@ AutocompleteHelper
 
 Helps generate HTML for use with the jQuery UI Autocomplete widget. (Examples are in HAML. http://haml-lang.com/)
 
-    - ui_autocomplete
+    = ui_autocomplete
 
 The above will generate this HTML in your view:
 
@@ -119,7 +119,7 @@ The above will generate this HTML in your view:
 
 You can pass your own form field and other html in a block, but you should be sure to include an input of type text, as that's what the generated Javascript looks for.
 
-    - ui_autocomplete :html => { :id => 'my_autocomplete' } do
+    = ui_autocomplete :html => { :id => 'my_autocomplete' } do
       = text_field :post
 
 The above will generate this HTML in your view:
@@ -135,7 +135,7 @@ Javascript Generation
 By default, Javascript for the generated HTML is saved via content_for to the identifier :jquery_ui_helpers. You can specify a custom identifier with 
 the parameter :script_for
 
-    - ui_tabs :script_for => :scripts do |widget|
+    = ui_tabs :script_for => :scripts do |widget|
       ...
 
 You'll output that, at the bottom of the page beneath where you load jQuery, using:
