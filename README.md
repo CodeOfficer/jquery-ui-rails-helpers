@@ -4,6 +4,8 @@ What Is It?
 It's a Ruby on Rails plugin that provides helpers that take some of the boilerplate out of generating HTML
 for use with jQuery UI, see http://jqueryui.com/.
 
+Examples are in HAML, see http://haml.info/.
+
 Selectmenu
 ----------
 
@@ -19,7 +21,7 @@ Also see: https://github.com/fnagel/jquery-ui for more, including updates (perhp
 TabsHelper
 ----------
 
-Helps generate HTML for use with the jQuery UI Tabs plugin. (Examples are in HAML. http://haml-lang.com/)
+Helps generate HTML for use with the jQuery UI Tabs plugin.
 
     = ui_tabs do |widget|
     	- widget.tab('tab_one', 'Tab 1') do
@@ -58,7 +60,7 @@ Options for jQuery UI widgets will be passed in via a `:ui` parameter, but this 
 AccordionHelper
 ---------------
 
-Helps generate HTML for use with the jQuery UI Accordion widget. (Examples are in HAML. http://haml-lang.com/)
+Helps generate HTML for use with the jQuery UI Accordion widget.
 
 Usage is identical to the Tabs helper.
 
@@ -85,7 +87,7 @@ The above will generate this HTML in your view:
 DialogHelper
 ---------------
 
-Helps generate HTML for use with the jQuery UI Dialog widget. (Examples are in HAML. http://haml-lang.com/)
+Helps generate HTML for use with the jQuery UI Dialog widget.
 
     = ui_dialog :html => { :id => 'my_dialog', :title => 'Dialog Title' } do |widget|
       Dialog contents
@@ -107,7 +109,7 @@ offers is perhaps not terribly useful in itself. When `:ui` parameters are suppo
 AutocompleteHelper
 ---------------
 
-Helps generate HTML for use with the jQuery UI Autocomplete widget. (Examples are in HAML. http://haml-lang.com/)
+Helps generate HTML for use with the jQuery UI Autocomplete widget.
 
     = ui_autocomplete
 
