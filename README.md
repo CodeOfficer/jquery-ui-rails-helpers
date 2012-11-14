@@ -1,12 +1,12 @@
 What Is It?
 ===========
 
-It's a Ruby on Rails plugin that provides helpers that take some of the boilerplate out of generating HTML for use with jQuery UI. http://jqueryui.com/
+It's a Ruby on Rails plugin that provides helpers that take some of the boilerplate out of generating HTML for use with jQuery UI, see http://jqueryui.com/.
 
 Selectmenu
 ----------
 
-See http://jquery-ui.googlecode.com/svn/branches/labs/selectmenu/index.html
+See http://jquery-ui.googlecode.com/svn/branches/labs/selectmenu/index.html.
 
 Assets:
 
@@ -205,17 +205,18 @@ You can do CSS tooltip customization. Here we want to make the tooltip more slim
       margin-left: 0;
     }
 
-For more details see http://www.filamentgroup.com
-Reference article: http://filamentgroup.com/lab/update_jquery_ui_slider_from_a_select_element_now_with_aria_support/
+For more details see http://www.filamentgroup.com.
 
-Github project: https://github.com/filamentgroup/jQuery-Slider
+Reference article: http://filamentgroup.com/lab/update_jquery_ui_slider_from_a_select_element_now_with_aria_support/.
 
-Demo page: http://www.filamentgroup.com/examples/slider_v2/index.html
+Github project: https://github.com/filamentgroup/jQuery-Slider.
+
+Demo page: http://www.filamentgroup.com/examples/slider_v2/index.html.
 
 DateRangePicker
 ------------
 
-Here is an example of an JSON options struture that can be passed in (see http://filamentgroup.com/examples/daterangepicker_v2/index2.php)
+Here is an example of an JSON options struture that can be passed in (see http://filamentgroup.com/examples/daterangepicker_v2/index2.php):
 
     {
       presetRanges: [
@@ -309,9 +310,9 @@ Includes iPod "flyout" style menu.
 Checkbox
 ------------
 
-See http://maninblack.info/_proj/jquery-ui-checkbox-radiobutton/demos/checkbox-radiobutton/
+See http://maninblack.info/_proj/jquery-ui-checkbox-radiobutton/demos/checkbox-radiobutton/.
 
-See http://www.openpave.org/~reg/jqueryui-checkbox.html
+See http://www.openpave.org/~reg/jqueryui-checkbox.html.
 
     = ui_checkbox :label => 'B', :selected => true
     = ui_checkboxes :labels => ['B', 'I'], :selected => ['B']
@@ -321,7 +322,7 @@ Same API as `ui_buttonset` and can still take the `:type` option, either :radio 
 Radiobutton
 ------------
 
-See http://maninblack.info/_proj/jquery-ui-checkbox-radiobutton/demos/checkbox-radiobutton/
+See http://maninblack.info/_proj/jquery-ui-checkbox-radiobutton/demos/checkbox-radiobutton/.
 
     = ui_radiobutton :label => 'B', :selected => true
     = ui_radiobuttons :labels => ['B', 'I'], :type => 'checkbox', :selected => ['B']
@@ -331,9 +332,7 @@ Same API as `ui_buttonset` but without the `:type` option
 Themeswitcher
 ------------
 
-You might also find the themeswitcher for Rails useful
-
-https://github.com/kristianmandrup/ui_themeswitcher
+You might also find the themeswitcher for Rails useful: https://github.com/kristianmandrup/ui_themeswitcher.
 
 Rails asset pipeline
 -------------
