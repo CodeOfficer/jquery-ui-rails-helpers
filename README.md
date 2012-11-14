@@ -1,7 +1,8 @@
 What Is It?
 ===========
 
-It's a Ruby on Rails plugin that provides helpers that take some of the boilerplate out of generating HTML for use with jQuery UI, see http://jqueryui.com/.
+It's a Ruby on Rails plugin that provides helpers that take some of the boilerplate out of generating HTML
+for use with jQuery UI, see http://jqueryui.com/.
 
 Selectmenu
 ----------
@@ -43,8 +44,7 @@ The above will generate this HTML in your view:
 
 Tabs will be rendered in the order you create them.
 
-You can pass HTML options to either the parent `div` or any individual tab's
-`div` as you like ...
+You can pass HTML options to either the parent `div` or any individual tab's `div` as you like ...
 
     = ui_tabs :html => { :id => 'special_tabs', :class => 'zippy' } do |tab|
       - widget.tab 'tab_one', 'Tab 1', :html => { :style => 'background: #FFF' } do
@@ -100,7 +100,8 @@ Which you'll then work with in Javascript by the id:
 
     $('#my_dialog').dialog('open');
 
-By default, dialogs will be set with `autoOpen: false`. In its current form, what the dialog helper offers is perhaps not terribly useful in itself. When `:ui` parameters are supported, it ought to come into its own! 
+By default, dialogs will be set with `autoOpen: false`. In its current form, what the dialog helper
+offers is perhaps not terribly useful in itself. When `:ui` parameters are supported, it ought to come into its own! 
 
 
 AutocompleteHelper
@@ -116,7 +117,8 @@ The above will generate this HTML in your view:
       <input type="text" />
     </div>
 
-You can pass your own form field and other html in a block, but you should be sure to include an input of type text, as that's what the generated Javascript looks for.
+You can pass your own form field and other html in a block, but you should be sure to include
+an input of type text, as that's what the generated Javascript looks for.
 
     = ui_autocomplete :html => { :id => 'my_autocomplete' } do
       = text_field :post
@@ -130,8 +132,8 @@ The above will generate this HTML in your view:
 Javascript Generation
 ---------------------
 
-By default, Javascript for the generated HTML is saved via `content_for` to the identifier `:jquery_ui_helpers`. You can specify a custom identifier with 
-the parameter `:script_for`
+By default, Javascript for the generated HTML is saved via `content_for` to the identifier `:jquery_ui_helpers`.
+You can specify a custom identifier with the parameter `:script_for`
 
     = ui_tabs :script_for => :scripts do |widget|
       ...
@@ -187,7 +189,8 @@ Use it something like this:
 SelectSlider
 -------------
 
-This helper uses the Filamentgroup SelectSlider, which sits on top of the jQuery UI Slider and enhances it with tooltips, labels and ARIA support etc.
+This helper uses the Filamentgroup SelectSlider, which sits on top of the jQuery UI Slider
+and enhances it with tooltips, labels and ARIA support etc.
 
 You can use it something like this:
 
@@ -317,7 +320,9 @@ See http://www.openpave.org/~reg/jqueryui-checkbox.html.
     = ui_checkbox :label => 'B', :selected => true
     = ui_checkboxes :labels => ['B', 'I'], :selected => ['B']
 
-Same API as `ui_buttonset` and can still take the `:type` option, either :radio or checkbox if `ui.checkbox_radio.jquery.js` is used. Otherwise, if `ui.checkbox.js` is used, you should only use the `:checkbox` type (or better leave it out).
+Same API as `ui_buttonset` and can still take the `:type` option, either `:radio` or checkbox
+if `ui.checkbox_radio.jquery.js` is used. Otherwise, if `ui.checkbox.js` is used, you should only
+use the `:checkbox` type (or better leave it out).
 
 Radiobutton
 ------------
