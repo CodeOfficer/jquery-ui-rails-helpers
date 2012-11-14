@@ -43,17 +43,17 @@ The above will generate this HTML in your view:
 
 Tabs will be rendered in the order you create them.
 
-You can pass HTML options to either the parent DIV or any individual tab's
-DIV as you like ...
+You can pass HTML options to either the parent `div` or any individual tab's
+`div` as you like ...
 
     = ui_tabs :html => { :id => 'special_tabs', :class => 'zippy' } do |tab|
       - widget.tab 'tab_one', 'Tab 1', :html => { :style => 'background: #FFF' } do
         Tab contents
 
-The default DOM ID for the parent div is ... id="tabs" ... unless you pass in an HTML
+The default DOM ID for the parent div is ... `id="tabs"` ... unless you pass in an HTML
 option with a different value.
 
-Options for jQuery UI widgets will be passed in via a :ui parameter, but this isn't supported yet.
+Options for jQuery UI widgets will be passed in via a `:ui` parameter, but this isn't supported yet.
 
 AccordionHelper
 ---------------
@@ -100,7 +100,7 @@ Which you'll then work with in Javascript by the id:
 
     $('#my_dialog').dialog('open');
 
-By default, dialogs will be set with "autoOpen: false". In its current form, what the dialog helper offers is perhaps not terribly useful in itself. When :ui parameters are supported, it ought to come into its own! 
+By default, dialogs will be set with `autoOpen: false`. In its current form, what the dialog helper offers is perhaps not terribly useful in itself. When `:ui` parameters are supported, it ought to come into its own! 
 
 
 AutocompleteHelper
@@ -130,8 +130,8 @@ The above will generate this HTML in your view:
 Javascript Generation
 ---------------------
 
-By default, Javascript for the generated HTML is saved via content_for to the identifier :jquery_ui_helpers. You can specify a custom identifier with 
-the parameter :script_for
+By default, Javascript for the generated HTML is saved via `content_for` to the identifier `:jquery_ui_helpers`. You can specify a custom identifier with 
+the parameter `:script_for`
 
     = ui_tabs :script_for => :scripts do |widget|
       ...
@@ -162,7 +162,7 @@ Use it something like this:
       "Save me"
     end
 
-It supports the :ui options hash for advanced config.
+It supports the `:ui` options hash for advanced config.
 
 Button Set
 -------------
@@ -195,7 +195,7 @@ You can use it something like this:
 
     = ui_select_slider :html => {:id => 'sqm', :class => 'slider sqm'}, :ui => {:labels => 3}, :labels => (1..10).to_a.map{|v| v*10}, :range => [30,60]
 
-This will generate two SELECT tags, one with a postfix id of '_from' and the other '_to', fx in the example above id='rooms_from' and id='rooms_to'
+This will generate two `selectt` tags, one with a postfix id of '_from' and the other '_to', fx in the example above id='rooms_from' and id='rooms_to'
 
 You can do CSS tooltip customization. Here we want to make the tooltip more slim than the default 8 character width. For other style customizations, see 'ui_slider.extras.css'
 
@@ -316,7 +316,7 @@ See http://www.openpave.org/~reg/jqueryui-checkbox.html
     = ui_checkbox :label => 'B', :selected => true
     = ui_checkboxes :labels => ['B', 'I'], :selected => ['B']
 
-Same API as `ui_buttonset` and can still take the :type option, either :radio or checkbox if `ui.checkbox_radio.jquery.js` is used. Otherwise, if `ui.checkbox.js` is used, you should only use the :checkbox type (or better leave it out).
+Same API as `ui_buttonset` and can still take the `:type` option, either :radio or checkbox if `ui.checkbox_radio.jquery.js` is used. Otherwise, if `ui.checkbox.js` is used, you should only use the `:checkbox` type (or better leave it out).
 
 Radiobutton
 ------------
@@ -326,7 +326,7 @@ See http://maninblack.info/_proj/jquery-ui-checkbox-radiobutton/demos/checkbox-r
     = ui_radiobutton :label => 'B', :selected => true
     = ui_radiobuttons :labels => ['B', 'I'], :type => 'checkbox', :selected => ['B']
 
-Same API as `ui_buttonset` but without the :type option
+Same API as `ui_buttonset` but without the `:type` option
 
 Themeswitcher
 ------------
